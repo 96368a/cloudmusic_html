@@ -11,7 +11,7 @@ a{
 }
 body{
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     background-color: #eee4e4;
     overflow: hidden;
@@ -37,10 +37,11 @@ header{
     /* background: #3172c7; */
     /* height: 1080px; */
     overflow: hidden auto;
+    border-right: 1px solid #e0e0e0;
 }
-.content{
+#content{
     flex: 1;
-    background: #a431c7;
+    /* background: #a431c7; */
 }
 .player{
     width: 1080px;

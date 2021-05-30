@@ -1,0 +1,73 @@
+#songlist{
+    height: 200px;
+
+}
+
+#list_info{
+    display: flex;
+
+}
+#list_img{
+    flex: 0 0 186px;
+    margin: 32px 20px 0 30px;
+    height: 186px;
+    width: 186px;
+    background: #00ffcc;
+    border-radius: 3px;
+}
+
+#songlist_info{
+    margin: 32px 0 0 0;
+}
+#songlist_info h2{
+    line-height: 32px;
+    height: 32px;
+    font-size: 22px;
+    margin: 0;
+}
+#songlist_info h2::before{
+    width: 36px;
+    height: 18px;
+    text-align: center;
+    display: inline-block;
+    line-height: 18px;
+    margin: 2px 10px 0 0;
+    content: "歌单";
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    color: #ff5c98;
+    border: 1px solid #ff5c98;
+    border-radius: 2px;
+    vertical-align: text-top;
+    /* margin: auto 0; */
+}
+.avatar_1{
+    font-size: 12px;
+    height: 32px;
+    line-height: 32px;
+    color: #507daf;
+}
+.avatar_1::before{
+
+    display: inline-block;
+    content: "";
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    background: url("http://p1.music.126.net/axewGX7u9P9Iuqjep-3mmQ==/109951165601796681.jpg") no-repeat;
+    background-size: 22px 22px;
+    margin-right: 6px;
+    /* line-height: 32px; */
+    vertical-align:middle;
+}
+
+.create_time{
+    font-size: 13px;
+    margin-left: 4px;
+}
+
+#songlist_info button{
+    padding: 10px;
+    border-radius: 50px;
+    /* background: #00ffcc; */
+}
