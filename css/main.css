@@ -1,0 +1,167 @@
+body, html, h1, h2, h3, h4, h5, h6, ul, li, header, input{
+    padding: 0;
+    margin: 0;
+}
+button,input{
+    outline: none;
+    border: none;
+}
+a{
+    text-decoration: none;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee4e4;
+    overflow: hidden;
+}
+
+.main_body{
+    flex: 0 0 1080px;
+    background-color: #ffffff;
+    height: 1080px;
+    overflow: hidden;
+}
+
+header{
+    height: 56px;
+    background-color: #e0688a;
+    display: flex;
+}
+.center{
+    display: flex;
+}
+.menu{
+    flex: 0 0 200px;
+    /* background: #3172c7; */
+    /* height: 1080px; */
+    overflow: hidden auto;
+}
+.content{
+    flex: 1;
+    background: #a431c7;
+}
+.player{
+    width: 1080px;
+    height: 62px;
+    position: fixed;
+    bottom: 0;
+    left: auto;
+    background: #66ccff;
+}
+
+
+
+.logo{
+    flex: 0 0 200px;
+    /* background-color: #1693b9; */
+    background: url(../images/1.svg) no-repeat 24px center;
+    background-size: 60% 60%;
+}
+
+.search_box{
+    flex: 0 0 420px;
+    /* background-color: #ae12d4; */
+    line-height: 56px;
+    padding-left: 20px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+
+.search_box button{
+    font-size: 14px;
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    color: #fff;
+    background: rgba(190, 196, 201, 0.192);
+    text-align: center;
+    line-height: 24px;
+}
+.b_f{
+    display: inline-block;
+    width: 64px;
+}
+.search{
+    flex: 0 0 200px;
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+    border-radius: 50px;
+    background: rgba(190, 196, 201, 0.192);
+    /* background: #1693b9; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding-right: 12px;
+}
+.search label{
+    padding-left: 10px;
+    flex: 0 0 20px;
+}
+.search input{
+    padding-left: 12px;
+    flex: 1;
+    background: #00000000;
+    color: #fff;
+}
+
+button.listening{
+    margin-left: 12px;
+    flex: 0 0 32px;
+    line-height: 32px;
+    height: 32px;
+}
+
+.header_right{
+    flex: 2;
+    /* background: #731efd; */
+    display: flex;
+    justify-content: flex-end;
+    color: #fff;
+}
+.operate_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.operate_button span{
+    color: #ffffffc0;
+    width: 20px;
+    text-align: center;
+}
+.operate_button button{
+    color: rgb(240, 233, 233);
+    width: 28px;
+    height: 28px;
+    margin: 2px;
+    background: #00000000;
+}
+
+.operate_button button:hover,.user_button:hover{
+    color: rgb(255, 255, 255);
+}
+
+.user_button{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 13px;
+    color: #ffffffcb;
+}
+.username{
+    width: 46px;
+    text-align: center;
+}
+.avatar{
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    background: url("http://p1.music.126.net/axewGX7u9P9Iuqjep-3mmQ==/109951165601796681.jpg") no-repeat;
+    background-size: 32px 32px;
+}
