@@ -24,7 +24,9 @@
     height: 32px;
     font-size: 22px;
     margin: 0;
+    /* margin-bottom: 10px; */
 }
+
 #songlist_info h2::before{
     width: 36px;
     height: 18px;
@@ -67,7 +69,55 @@
 }
 
 #songlist_info button{
-    padding: 10px;
-    border-radius: 50px;
-    /* background: #00ffcc; */
+    /* margin-right: 12px; */
+    margin: 6px 12px 12px 0;
+    /* padding: 10px; */
+    padding: 0 20px 0 24px;
+    border-radius: 18px;
+    /* background: #ffffff; */
+    border: 1px solid #d8d8d8;
+    height: 32px;
+    line-height: 30px;
+    background: #ffffff;
+    color: #2e2e2e;
+}
+
+button#play_all{
+    background: #ea507e;
+    color: #fafafa;
+}
+#play_all::before{
+    content: "▶ ";
+}
+#play_all::after{
+    display: inline-block;
+    content: "▶ ";
+    margin-left: 10px;
+    padding-left: 10px;
+    /* line-height: 32px; */
+    border-left: 1px solid #dacece80;
+}
+
+button#favorite_list{
+    color: #aca1a1;
+}
+
+#favorite_list::before{
+    content: "♗ ";
+}
+
+#share_list::before{
+    content: "♂ ";
+}
+
+#download_all::before{
+    content: "⏬ ";
+    /* vertical-align: top; */
+    line-height: 28px;
+}
+
+#songlist_statistics_info{
+    padding: 0.5em;
+    font-size: 12px;
+    color: #2e2e2e;
 }
