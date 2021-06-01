@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>音乐列表</title>
     <link rel="stylesheet" href="css/song_list.css">
     <script src="js/loag-Songlist.js"></script>
 </head>
+
 <body>
     <div id="songlist">
         <div id="list_info">
@@ -16,20 +12,57 @@
                 <!-- <span class="songlist_ico">歌单</span> -->
                 <h2>我喜欢的音乐</h2>
                 <div>
-                <a href="" class="avatar_1"><span>木末君</span></a>
-                <span class="create_time">2017-10-2年创建</span>
-            </div>
-                <div>
+                    <a href="" class="avatar_1"><span>木末君</span></a>
+                    <span class="create_time">2017-10-2年创建</span>
+                </div>
+                <div id="some_button">
                     <button id="play_all">播放全部</button>
                     <button id="favorite_list">收藏(1)</button>
                     <button id="share_list">分享(2)</button>
                     <button id="download_all">下载全部</button>
                 </div>
                 <span id="songlist_statistics_info">歌曲: 150 播放:3173</span>
+                <span id="introduction">简介:Ps:原创歌曲《云翳与晚霞》《二月九日 雨》《冬会初雪》《愿你的长夏永不凋谢》《45°蓝》希望大家可以听听，留下你们的评论吧
+                    谢谢！(^_^)
+                    精华版歌单在主页，喜欢就去试一试！
+                    另外还有其他的精品歌单，欢迎收听！
+                    完整封面在动态里，大家喜欢的可以自取！
+                    歌曲持续更新ing（我也在听 •̀∀•́ ）！
+
+                    我所念皆星河，你就是我的星河，所以我所念皆是你。
+                    星河灿烂，不及你半分。你是人间美好，是我的光。
+                    你若是皎月，我便化作繁星满天，只为赠你一丝温柔。
+                    我携日月揽星河，不顾一切地奔向你，我想把所有美好都给你，你值得。
+                    我喜欢你，所以希望你被簇拥包围，所以你走的路要繁花盛开，要人声鼎沸
+                    我喜欢你，所以希望你被阳光照耀，被清风眷恋。
+                    你身处光明，不惧黑暗。你像我的天使，将我拉出黑暗的沼泽，站在阳光之下。
+                    对我来说，风光无限是你，跌落尘埃也是你，最重要的是你，而不是怎样的你。</span>
             </div>
         </div>
         <div id="songlist_content">
+            <div id="content_nav">
+                <span class="this_content_nav" id="song_list">歌曲列表</span>
+                <span id="comment">评论(0)</span>
+                <span id="collector">收藏者</span>
+            </div>
+            <div id="songlist_each_info">
+                <ul>
+                    <li>
+                        <span></span>
+                        <span>音乐标题</span>
+                        <span>歌手</span>
+                        <span>专辑</span>
+                        <span>时长</span>
+                    </li>
+                    <li>
+                        <span>❤</span>
+                        <span>七秒之恋</span>
+                        <span>洛天依</span>
+                        <span>洛天依作品集</span>
+                        <span>04:48</span>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </body>
-</html>

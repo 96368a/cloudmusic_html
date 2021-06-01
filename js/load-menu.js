@@ -17,5 +17,4 @@ var menu=$.getJSON("https://163.233c.cn/user/playlist?uid="+userid,function(menu
         $(".menu ul").append(menu_list)
     });
 });
-console.log(menu)
 });

@@ -5,7 +5,8 @@
 
 #list_info{
     display: flex;
-
+    width: 870px;
+    height: 240px;
 }
 #list_img{
     flex: 0 0 186px;
@@ -69,6 +70,7 @@
 }
 
 #songlist_info button{
+    cursor: pointer;
     /* margin-right: 12px; */
     margin: 6px 12px 12px 0;
     /* padding: 10px; */
@@ -85,6 +87,12 @@
 button#play_all{
     background: #ea507e;
     color: #fafafa;
+}
+#some_button button:hover{/*其他按钮经过特效*/
+    background: #f2f2f2;
+}
+button#play_all:hover{/*播放全部按钮经过特效*/
+    background: #de4b77;
 }
 #play_all::before{
     content: "▶ ";
@@ -116,8 +124,119 @@ button#favorite_list{
     line-height: 28px;
 }
 
-#songlist_statistics_info{
+#songlist_statistics_info,#introduction{
+    display: block;
+    width: 100%;
     padding: 0.5em;
     font-size: 12px;
     color: #2e2e2e;
+}
+
+#introduction{
+    width: 440px;
+    height: 500px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#songlist_content{
+    /* background: #66ccff; */
+    width: 100%;
+    height: 300px;
+}
+
+#content_nav{
+    font-size: 15px;
+    color: #373737;
+    height: 40px;
+    padding-left: 32px;
+}
+#content_nav span{
+    display: inline-block;
+    /* width: 75px; */
+    padding: 4px;
+    text-align: center;
+}
+#content_nav>span:hover{
+    color: #000;
+    /* font-size: 16px; */
+}
+
+.this_content_nav{
+    font-weight: 600;
+    font-size: 16px;
+}
+/* .this_content_nav::after{
+    display: block;
+    line-height: 1px;
+    position: absolute;
+    width: 50px;
+    content: "";
+    border-bottom: 2px solid #ff5c8a;
+} */
+#songlist_each_info ul{
+    counter-reset: sno;
+}
+#songlist_each_info li{
+    list-style: none;
+    display: flex;
+    line-height: 32px;
+    border-radius: 2px;
+}
+
+#songlist_each_info li span{
+    flex: 1;
+    font-size: 13px;
+    color: #343434;
+}
+#songlist_each_info li:first-child span{
+    color: #888888;
+}
+
+#songlist_each_info li span:first-child{
+    padding: 0 10px 0 20px;
+    flex: 0 0 90px;
+    text-align: end;
+}
+
+#songlist_each_info li:not(:first-child) span:first-child::before{
+    counter-increment: sno;
+    content: counter(sno);
+    /* text-align: start; */
+    float: left;
+    padding-left: 20px;
+    color: #aaabac;
+}
+#songlist_each_info li:not(:first-child) span:first-child::after{
+    content: "⇩";
+    /* float: left; */
+    padding-left: 5px;
+    color: #aaabac;
+}
+
+#songlist_each_info li:nth-child(even){
+    background: #f9f9f9;
+}
+
+#songlist_each_info li:hover{
+    background: #f0f1f2;
+}
+#songlist_each_info li:active{
+    background: #e5e5e5;
+}
+
+#content{
+    overflow: hidden auto;
+}
+
+#content::-webkit-scrollbar {
+    width: 5px;
+    height: 2px;
+}
+
+#content:hover::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px rgba(66, 64, 64, 0.2);
+    background: #e2d7d7;
 }

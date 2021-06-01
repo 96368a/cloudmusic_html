@@ -41,6 +41,7 @@ header{
 }
 #content{
     flex: 1;
+    overflow: hidden auto;
     /* background: #a431c7; */
 }
 .player{
