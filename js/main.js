@@ -8,3 +8,17 @@ $(function(){
     menu=load_menu(userid);
     songlist=load_songlist(942008918);
 });
+
+/* function a(){
+    data = $.getJSON("https://163.233c.cn/playlist/detail?id=942008918",function(data){
+        ids=[]
+        for(i=0;i<data.playlist.trackIds.length;i++){
+            ids.push(data.playlist.trackIds[i].id);
+        }
+        var tt = b(ids)
+        console.log(tt)
+    })
+}
+function b(ids){
+    return $.getJSON("https://163.233c.cn/song/detail?ids="+ids.toString());
+} */
