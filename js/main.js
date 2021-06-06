@@ -6,7 +6,7 @@ $(function(){
     $(".menu").load("menu.html");
     $("#content").load("song_list.html");
     menu=load_menu(userid);
-    songlist=load_songlist(942008918);
+    songlist=load_songlist(6617041635);
 });
 
 /* function a(){

@@ -50,14 +50,14 @@
     line-height: 32px;
     color: #507daf;
 }
-.avatar_1::before{
+.avatar_1 img{
 
     display: inline-block;
     content: "";
     border-radius: 50%;
     width: 22px;
     height: 22px;
-    background: url("http://p1.music.126.net/axewGX7u9P9Iuqjep-3mmQ==/109951165601796681.jpg") no-repeat;
+    /* background: url("http://p1.music.126.net/axewGX7u9P9Iuqjep-3mmQ==/109951165601796681.jpg") no-repeat; */
     background-size: 22px 22px;
     margin-right: 6px;
     /* line-height: 32px; */

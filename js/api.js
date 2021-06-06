@@ -1,4 +1,12 @@
+_url="https://163.233c.cn"
 
+function format_num(num){
+    if(num<=9999){
+        return num+"";
+    }else{
+        return Math.floor(num/10000)+"万";
+    }
+}
 async function get_json(url){
     return new Promise((resolve,rejects)=>{
         $.getJSON(url,(res,status)=>{
@@ -12,13 +20,13 @@ async function get_json(url){
 }
 
 async function get_user_playlist(userid){//加载个人歌单 传入用户id
-    _url="https://163.233c.cn/user/playlist?uid="
-    return get_json(_url+userid);
+    url= _url+"/user/playlist?uid="
+    return get_json(url+userid);
 }
 
 async function get_playlist_detail(id){//加载歌单详情 传入歌单id
-    _url = "https://163.233c.cn/playlist/detail?id="
-    data = await get_json(_url+id);
+    url = _url+"/playlist/detail?id="
+    data = await get_json(url+id);
     ids=[]
     for(i=0;i<data.playlist.trackIds.length;i++){
         ids.push(data.playlist.trackIds[i].id);
@@ -28,7 +36,11 @@ async function get_playlist_detail(id){//加载歌单详情 传入歌单id
     return data;
 }
 async function get_song_detail(ids){//加载歌单详情 传入歌曲id数组，可批量查询
-    _url= "https://163.233c.cn/song/detail?ids="
-    return get_json(_url+ids.toString());
+    url= _url+"/song/detail?ids="
+    return get_json(url+ids.toString());
 }
 
+async function get_playlist_detail_dynamic(id){
+    url= _url+"/playlist/detail/dynamic?id="
+    return get_json(url+id);
+}
