@@ -1,0 +1,120 @@
+#player{
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid #f4f4f4;
+}
+
+#song_detail{
+    flex: 1;
+    /* background: #66ccff; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#song_pic{
+    flex: 0 0 52px;
+    margin: 7px;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    background: #e32ce9;
+    /* float: left; */
+}
+#song_info{
+    /* display: inline-block; */
+    font-size: 14px;
+}
+#song_name{
+    font-size: 14px;
+    display: inline-block;
+}
+#song_author{
+    display: inline-block;
+    font-size: 12px;
+}
+#player_control{
+    flex: 2;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#player_control button{
+    flex: 0 0 36px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    text-align: center;
+    background: none;
+    margin: 0 10px 0 10px;
+}
+button#player_play{
+    background: #f4f4f4;
+}
+#player_progress{
+    font-size: 12px;
+    transform: scale(0.9);
+}
+#player_progress progress{
+    width: 350px;
+    border-radius: 0;
+    vertical-align: middle;
+    height: 3px;
+}
+#player_progress progress::-webkit-progress-bar{
+    background: #cdcdcd;
+}
+#player_progress progress::-webkit-progress-value{
+    background: #ff5c8a;
+}
+#other_features{
+    flex: 1;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#other_features span:first-child{
+    width: 36px;
+    height: 18px;
+    text-align: center;
+    display: inline-block;
+    line-height: 18px;
+    margin: 2px 10px 0 0;
+    content: "歌单";
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    /* color: #ff5c98; */
+    border: 1px solid #ff5c98;
+    border-radius: 2px;
+    vertical-align: text-top;
+}
+#other_features span:nth-child(2){
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+}
+#other_features span:nth-child(4){
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+}
+
+#other_features progress{
+    border-radius: 2px;
+    border: none;
+    height: 3px;
+    vertical-align: middle;
+    width: 80px;
+}
+#other_features progress::-webkit-progress-bar{
+    background-color: #e5e5e5;
+}
+#other_features progress::-webkit-progress-value{
+    background: #ff5c8a;
+}

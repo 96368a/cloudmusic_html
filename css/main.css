@@ -44,7 +44,7 @@ header{
     overflow: hidden auto;
     /* background: #a431c7; */
 }
-.player{
+#player{
     width: 1080px;
     height: 62px;
     position: fixed;

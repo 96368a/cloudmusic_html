@@ -1,5 +1,7 @@
 _url="https://163.233c.cn"
-
+//https://music.api.tianli0.top/
+//http://www.hjmin.com/
+//http://music.eleuu.com/
 function format_num(num){
     if(num<=9999){
         return num+"";
@@ -42,5 +44,10 @@ async function get_song_detail(ids){//加载歌单详情 传入歌曲id数组，
 
 async function get_playlist_detail_dynamic(id){
     url= _url+"/playlist/detail/dynamic?id="
+    return get_json(url+id);
+}
+
+async function get_song_url(id){
+    url = _url+"/song/url?id="
     return get_json(url+id);
 }
