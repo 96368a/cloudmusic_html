@@ -14,24 +14,30 @@
 }
 
 #song_pic{
-    flex: 0 0 52px;
+    flex: 0 0 50px;
     margin: 7px;
     width: 50px;
     height: 50px;
-    border-radius: 5px;
+    border-radius: 6px;
     background: #e32ce9;
     /* float: left; */
 }
+#song_pic img{
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+}
 #song_info{
     /* display: inline-block; */
+    flex: 1;
     font-size: 14px;
 }
 #song_name{
     font-size: 14px;
-    display: inline-block;
+    display: block;
 }
 #song_author{
-    display: inline-block;
+    display: block;
     font-size: 12px;
 }
 #player_control{

@@ -47,7 +47,8 @@ async function get_playlist_detail_dynamic(id){
     return get_json(url+id);
 }
 
-async function get_song_url(id){
+async function get_song_url(ids){
     url = _url+"/song/url?id="
-    return get_json(url+id);
+    return get_json(url+ids.toString());
 }
+
