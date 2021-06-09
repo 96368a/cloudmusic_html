@@ -12,10 +12,26 @@
     </div>
     <div id="player_control">
         <div id="player_control_button">
-            <button id="player_mode">∞</button>
-            <button id="player_prev">上</button>
-            <button id="player_play">⏯</button>
-            <button id="player_next">下</button>
+            <button id="player_mode">
+                <svg class="icon svg-icon" aria-hidden="true">
+                    <use xlink:href="#icon-xindong"></use>
+                </svg>
+            </button>
+            <button id="player_prev">
+                <svg class="icon svg-icon" aria-hidden="true">
+                    <use xlink:href="#icon-prev"></use>
+                </svg>
+            </button>
+            <button id="player_play">
+                <svg class="icon svg-icon" aria-hidden="true">
+                    <use xlink:href="#icon-bofang"></use>
+                </svg>
+            </button>
+            <button id="player_next">
+                <svg class="icon svg-icon" aria-hidden="true">
+                    <use xlink:href="#icon-next"></use>
+                </svg>
+            </button>
             <button id="player_lyric">词</button>
         </div>
         <div id="player_progress">
@@ -26,9 +42,13 @@
     </div>
     <div id="other_features">
         <span>极高</span>
-        <span>❔</span>
+        <span><svg class="icon svg-icon" aria-hidden="true">
+            <use xlink:href="#icon-yinliang"></use>
+        </svg></span>
         <progress max="100" value="50" id="volume_bar"></progress>
-        <span id="song_list_show">✡</span>
+        <span id="song_list_show">                <svg class="icon svg-icon" aria-hidden="true">
+            <use xlink:href="#icon-songlist"></use>
+        </svg></span>
         <audio id="playerr" src=""></audio>
     </div>
 </body>

@@ -58,7 +58,7 @@ Object.defineProperty(player_list, 'now', {
             player.song_author.html(song_data.author)
             player.player.src = song_data.url
             player.player.play()
-            $("#player_play").html("⏸")
+            $("#player_play use").attr("xlink:href","#icon-bofang")
             $("#player_progress span:nth-child(3)").html(format_time(song_data.time))
             var now_time=setInterval(()=>{
             //歌曲播放进度

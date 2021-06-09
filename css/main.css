@@ -1,15 +1,38 @@
-body, html, h1, h2, h3, h4, h5, h6, ul, li, header, input{
+body,
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+header,
+input {
     padding: 0;
     margin: 0;
 }
-button,input{
+
+button,
+input {
     outline: none;
     border: none;
 }
-a{
+
+a {
     text-decoration: none;
 }
-body{
+
+.icon {
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+body {
     display: flex;
     /* justify-content: center; */
     align-items: center;
@@ -17,34 +40,38 @@ body{
     overflow: hidden;
 }
 
-.main_body{
+.main_body {
     flex: 0 0 1080px;
     background-color: #ffffff;
     height: 1080px;
     overflow: hidden;
 }
 
-header{
+header {
     height: 56px;
     background-color: #e0688a;
     display: flex;
 }
-.center{
+
+.center {
     display: flex;
 }
-.menu{
+
+.menu {
     flex: 0 0 200px;
     /* background: #3172c7; */
     /* height: 1080px; */
     overflow: hidden auto;
     border-right: 1px solid #e0e0e0;
 }
-#content{
+
+#content {
     flex: 1;
     overflow: hidden auto;
     /* background: #a431c7; */
 }
-#player{
+
+#player {
     width: 1080px;
     height: 62px;
     position: fixed;
@@ -55,14 +82,14 @@ header{
 
 
 
-.logo{
+.logo {
     flex: 0 0 200px;
     /* background-color: #1693b9; */
     background: url(../images/1.svg) no-repeat 24px center;
     background-size: 60% 60%;
 }
 
-.search_box{
+.search_box {
     flex: 0 0 420px;
     /* background-color: #ae12d4; */
     line-height: 56px;
@@ -73,7 +100,7 @@ header{
 }
 
 
-.search_box button{
+.search_box button {
     font-size: 14px;
     width: 24px;
     height: 24px;
@@ -83,11 +110,13 @@ header{
     text-align: center;
     line-height: 24px;
 }
-.b_f{
+
+.b_f {
     display: inline-block;
     width: 64px;
 }
-.search{
+
+.search {
     flex: 0 0 200px;
     display: inline-block;
     width: 200px;
@@ -101,42 +130,47 @@ header{
     color: #fff;
     padding-right: 12px;
 }
-.search label{
+
+.search label {
     padding-left: 10px;
     flex: 0 0 20px;
 }
-.search input{
+
+.search input {
     padding-left: 12px;
     flex: 1;
     background: #00000000;
     color: #fff;
 }
 
-button.listening{
+button.listening {
     margin-left: 12px;
     flex: 0 0 32px;
     line-height: 32px;
     height: 32px;
 }
 
-.header_right{
+.header_right {
     flex: 2;
     /* background: #731efd; */
     display: flex;
     justify-content: flex-end;
     color: #fff;
 }
-.operate_button{
+
+.operate_button {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.operate_button span{
+
+.operate_button span {
     color: #ffffffc0;
     width: 20px;
     text-align: center;
 }
-.operate_button button{
+
+.operate_button button {
     color: rgb(240, 233, 233);
     width: 28px;
     height: 28px;
@@ -144,11 +178,12 @@ button.listening{
     background: #00000000;
 }
 
-.operate_button button:hover,.user_button:hover{
+.operate_button button:hover,
+.user_button:hover {
     color: rgb(255, 255, 255);
 }
 
-.user_button{
+.user_button {
     flex: 1;
     display: flex;
     justify-content: flex-end;
@@ -156,11 +191,13 @@ button.listening{
     font-size: 13px;
     color: #ffffffcb;
 }
-.username{
+
+.username {
     width: 46px;
     text-align: center;
 }
-.avatar{
+
+.avatar {
     border-radius: 50%;
     width: 32px;
     height: 32px;

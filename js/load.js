@@ -72,7 +72,7 @@ async function load_song(id) {
     data = await get_song_url(id)
     player.src = data.data[0].url
     player.play();
-    $("#player_play").html("⏸")
+    $("#player_play use").attr("xlink:href","#icon-bofang")
 }
 
 async function play_songlist() {//播放列表更新
@@ -113,10 +113,10 @@ setTimeout(() => {
         console.log(233)
         if (player.player.paused) {
             player.player.play();
-            $(this).html("⏸")
+            $("#player_play use").attr("xlink:href","#icon-bofang")
         } else {
             player.player.pause();
-            $(this).html("⏯")
+            $("#player_play use").attr("xlink:href","#icon-zanting")
         }
     })
     $("#player_prev").on('click', () => {
