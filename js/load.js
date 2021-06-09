@@ -53,6 +53,7 @@ async function load_songlist(id) {//歌单详情
     //歌曲点击监听
     $("#songlist_each_info li[data-id]").on('dblclick', function () {
         // load_song($(this).attr("data-id"))
+        if(player_list.now_id!=songlist.playlist.id)
         play_songlist()
         player_list.now=$(this).index()-1
     })
@@ -85,7 +86,7 @@ async function play_songlist() {//播放列表更新
         song = new Object()
         song.id = songlist.playlist.tracks[i].id//歌曲id
         song.name = songlist.playlist.tracks[i].name//歌曲名字
-        song.url = data_url.data[i].url//歌曲地址
+        // song.url = data_url.data[i].url//歌曲地址
         song.al_picurl = songlist.playlist.tracks[i].al.picUrl//专辑图片
         song.al_name = songlist.playlist.tracks[i].al.name//专辑名字
         song.author = ""
@@ -96,8 +97,11 @@ async function play_songlist() {//播放列表更新
         player_list.songlist[song.id] = song
         order.push(song.id)
     }
-    play_songlist.order=order
-    play_songlist.now = 0
+    data_url.data.forEach(d=>{
+        player_list.songlist[d.id].url=d.url
+    })
+    player_list.order=order
+    player_list.now_id=songlist.playlist.id
 }
 
 async function play_song_start(now) {
@@ -114,5 +118,11 @@ setTimeout(() => {
             player.player.pause();
             $(this).html("⏯")
         }
+    })
+    $("#player_prev").on('click',()=>{
+        player_list.now++;
+    })
+    $("#player_next").on('click',()=>{
+        player_list.now++;
     })
 }, 2000);

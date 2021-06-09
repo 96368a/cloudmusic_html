@@ -16,7 +16,7 @@ $(function(){
         songlist=e;
     });
     setTimeout(function(){
-        play_songlist()
+        // play_songlist()
         player.player=$("#playerr")[0]
         player.pic=$("#song_pic img")[0]
         player.song_name=$("#song_name")
@@ -26,6 +26,7 @@ $(function(){
 });
 
 function create_player_list(){
+    player_list.now_id=0
     player_list.songlist=new Map()
     player_list.order=[]
     player_list.now=-1
@@ -40,11 +41,11 @@ Object.defineProperty(player_list,'now',{
         value=v;
         // console.log(1)
         if(value>=0&&value<=this.order.length){
-        let data=player_list.songlist[player_list.order[v]]
-        player.pic.src=data.al_picurl
-        player.song_name.html(data.name)
-        player.song_author.html(data.author)
-        player.player.src=data.url
+        let song_data=player_list.songlist[player_list.order[v]]
+        player.pic.src=song_data.al_picurl
+        player.song_name.html(song_data.name)
+        player.song_author.html(song_data.author)
+        player.player.src=song_data.url
         player.player.play()
         $("#player_play").html("⏸")
         }
