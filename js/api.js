@@ -9,6 +9,10 @@ function format_num(num){
         return Math.floor(num/10000)+"万";
     }
 }
+function format_time(time){
+    return ("" + Math.floor(time / 1000 / 60)).padStart(2, '0') + ":" + ("" + Math.floor(time / 1000 % 60)).padEnd(2, '0');
+
+}
 async function get_json(url){
     return new Promise((resolve,rejects)=>{
         $.getJSON(url,(res,status)=>{
