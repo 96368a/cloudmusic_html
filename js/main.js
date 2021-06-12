@@ -32,8 +32,8 @@ $(function () {
         alert(233)
     }
 }) */
-    
-    }, 3000)
+console.log("%c%s","color: #66ccff",_logs404.getMultiLine())
+    }, 1000)
 });
 
 function create_player_list() {

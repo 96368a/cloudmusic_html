@@ -21,7 +21,7 @@ async function load_menu(userid) {//加载个人歌单
 
 async function load_songlist(id) {//歌单详情
     data = await get_playlist_detail(id);
-    console.log(data)
+    // console.log(data)
     //设置歌单名
     $("#songlist_info h2").html(data.playlist.name)
     //设置歌单缩略图
@@ -60,7 +60,7 @@ async function load_songlist(id) {//歌单详情
 
     //歌单收藏、分享、播放
     info = await get_playlist_detail_dynamic(id)
-    console.log(info)
+    // console.log(info)
     $("#favorite").html("收藏(" + format_num(info.bookedCount) + ")")
     $("#share_list").html("分享(" + format_num(info.shareCount) + ")")
     $("#songlist_statistics_info").html("歌曲:" + data.playlist.trackIds.length + "  播放:" + format_num(info.playCount))
@@ -110,7 +110,7 @@ async function play_song_start(now) {
 //播放器按钮绑定
 setTimeout(() => {
     $("#player_play").click(function () {//播放、暂停
-        console.log(233)
+        // console.log(233)
         if (player.player.paused) {
             player.player.play();
             $("#player_play use").attr("xlink:href","#icon-bofang")
@@ -130,7 +130,7 @@ setTimeout(() => {
         $(this).val(volum*100)
         player.player.volume=volum
     }) */
-    $("#volume_bar").on('mousedown', function (e) {
+/*     $("#volume_bar").on('mousedown', function (e) {
         this.onmousemove=function(e){
             volum=(e.pageX - $(this).offset().left)/$("#volume_bar").width()
             $(this).val(volum*100)
@@ -140,7 +140,7 @@ setTimeout(() => {
             this.onmousemove=null
             this.onmouseup=null
         }
-    })
+    }) */
 /*     $("#player_progress progress").on('mousedown', function (e) {
         this.onmousemove=function(e){
             now_time=(e.pageX - $(this).offset().left)/$(this).width()
@@ -152,4 +152,50 @@ setTimeout(() => {
             this.onmouseup=null
         }
     }) */
-}, 2000);
+    //音量条事件
+    $("#volume_bar").mouseover(function(){
+        $(this).addClass("volume_thumb_dot")
+    })
+    $("#volume_bar").mouseout(function(){
+        $(this).removeClass("volume_thumb_dot")
+    })
+    $("#volume_thumb").width(player.player.volume*$("#volume_bar").width())
+    $("#volume_bar").mousedown(function(e){
+        volume_flag=true
+        $("#volume_thumb").width((e.pageX - $(this).offset().left))
+        player.player.volume=$("#volume_thumb").width()/$(this).width()
+    })
+    $("#volume_bar").mousemove(function(e){
+        if(volume_flag){
+            $("#volume_thumb").width((e.pageX - $(this).offset().left))
+            player.player.volume=$("#volume_thumb").width()/$(this).width()
+        }
+    })
+    $("#volume_bar").mouseup(()=>{
+        volume_flag=false
+    })
+
+    //进度条事件
+    $("#song_bar").mouseover(function(){
+        $("#song_thumb").addClass("song_thumb_dot")
+    })
+    $("#song_bar").mouseout(function(){
+        $("#song_thumb").removeClass("song_thumb_dot")
+    })
+    // $("#song_thumb").width(*$("#song_bar").width())
+    $("#song_bar").mousedown(function(e){
+        song_flag=true
+        $("#song_thumb").width((e.pageX - $(this).offset().left))
+        console.log((e.pageX - $(this).offset().left)/$(this).width())
+        // player.player.volume=$("#song_bar").width()/$(this).width()
+    })
+    $("#song_bar").mousemove(function(e){
+/*         if(volume_flag){
+            $("#song_bar").width((e.pageX - $(this).offset().left))
+            player.player.volume=$("#song_bar").width()/$(this).width()
+        } */
+    })
+    $("#song_bar").mouseup(()=>{
+        // volume_flag=false
+    })
+}, 1200);

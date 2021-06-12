@@ -63,19 +63,13 @@ button#player_play{
 #player_progress{
     font-size: 12px;
     transform: scale(0.9);
+    display: flex;
+    align-items:center;
 }
-#player_progress progress{
-    width: 350px;
-    border-radius: 0;
-    vertical-align: middle;
-    height: 3px;
+#player_progress span{
+    padding: 0 5px 0 5px;
 }
-#player_progress progress::-webkit-progress-bar{
-    background: #cdcdcd;
-}
-#player_progress progress::-webkit-progress-value{
-    background: #ff5c8a;
-}
+
 #other_features{
     flex: 1;
     background: #ffffff;
@@ -123,4 +117,77 @@ button#player_play{
 }
 #other_features progress::-webkit-progress-value{
     background: #ff5c8a;
+}
+
+.progress-bar {
+    width: 800px;
+    height: 5px;
+    background-color: #cecece;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+}
+
+.progress-thumb {
+    width: 500px;
+    height: 5px;
+    background-color: #66ccff;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 3px;
+}
+
+/* .progress-thumb:hover {
+    height: 8px;
+} */
+
+.progress-thumb-dot::after {
+    content: "";
+    height: 12px;
+    width: 12px;
+    background-color: #066392;
+    border-radius: 50%;
+    float: right;
+    margin-right: -2px;
+}
+
+#volume_bar{
+    width: 80px;
+    height: 3px;
+}
+
+#volume_thumb{
+    width: 10px;
+    height: 3px;
+}
+.volume_thumb_dot::after{
+    content: "";
+    height: 7px;
+    width: 7px;
+    background-color: #066392;
+    border-radius: 50%;
+    margin-right: -2px;
+}
+
+#song_bar{
+    flex: 0 0 350px;
+    width: 350px;
+    height: 4px;
+    display: inline-block;
+}
+
+#song_thumb{
+    flex: 0 0;
+    width: 50px;
+    height: 4px;
+}
+
+.song_thumb_dot::after{
+    content: "";
+    height: 8px;
+    width: 8px;
+    background-color: #066392;
+    border-radius: 50%;
+    margin-right: -2px;
 }

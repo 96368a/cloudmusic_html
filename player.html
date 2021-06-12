@@ -36,19 +36,23 @@
         </div>
         <div id="player_progress">
             <span>00:00</span>
-            <progress max="100" value="0" id="schedule_progress"></progress>
+            <div class="progress-bar" id="song_bar">
+                <div class="progress-thumb song_thumb_dot" id="song_thumb"></div>
+            </div>
             <span>04:50</span>
         </div>
     </div>
     <div id="other_features">
         <span>极高</span>
         <span><svg class="icon svg-icon" aria-hidden="true">
-            <use xlink:href="#icon-yinliang"></use>
-        </svg></span>
-        <progress max="100" value="50" id="volume_bar"></progress>
-        <span id="song_list_show">                <svg class="icon svg-icon" aria-hidden="true">
-            <use xlink:href="#icon-songlist"></use>
-        </svg></span>
+                <use xlink:href="#icon-yinliang"></use>
+            </svg></span>
+        <div class="progress-bar" id="volume_bar">
+            <div class="progress-thumb" id="volume_thumb"></div>
+        </div>
+        <span id="song_list_show"> <svg class="icon svg-icon" aria-hidden="true">
+                <use xlink:href="#icon-songlist"></use>
+            </svg></span>
         <audio id="playerr" src=""></audio>
     </div>
 </body>

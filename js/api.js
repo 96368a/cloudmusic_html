@@ -37,8 +37,9 @@ async function get_playlist_detail(id){//加载歌单详情 传入歌单id
     for(i=0;i<data.playlist.trackIds.length;i++){
         ids.push(data.playlist.trackIds[i].id);
     }
-    data.playlist.tracks = await get_song_detail(ids);
-    data.playlist.tracks = data.playlist.tracks.songs
+    let song = await get_song_detail(ids);
+    console.log(song)
+    data.playlist.tracks = song.songs
     return data;
 }
 async function get_song_detail(ids){//加载歌单详情 传入歌曲id数组，可批量查询
@@ -56,3 +57,32 @@ async function get_song_url(ids){
     return get_json(url+ids.toString());
 }
 
+
+_logs404=function(){
+    /* 
+    __                 __ __  ____  __ __
+   / /___  ____ ______/ // / / __ \/ // /
+  / / __ \/ __ `/ ___/ // /_/ / / / // /_
+ / / /_/ / /_/ (__  )__  __/ /_/ /__  __/
+/_/\____/\__, /____/  /_/  \____/  /_/   
+        /____/                           
+    */
+}
+
+logs404=function(){
+    /*
+     __       ______   _______    ______   __   __      ______   __   __       
+/_/\     /_____/\ /______/\  /_____/\ /__/\/__/\   /_____/\ /__/\/__/\     
+\:\ \    \:::_ \ \\::::__\/__\::::_\/_\  \ \: \ \__\:::_ \ \\  \ \: \ \__  
+ \:\ \    \:\ \ \ \\:\ /____/\\:\/___/\\::\_\::\/_/\\:\ \ \ \\::\_\::\/_/\ 
+  \:\ \____\:\ \ \ \\:\\_  _\/ \_::._\:\\_:::   __\/ \:\ \ \ \\_:::   __\/ 
+   \:\/___/\\:\_\ \ \\:\_\ \ \   /____\:\    \::\ \   \:\_\ \ \    \::\ \  
+    \_____\/ \_____\/ \_____\/   \_____\/     \__\/    \_____\/     \__\/  
+                                                                           
+     */
+}
+Function.prototype.getMultiLine = function () {
+    var lines = new String(this);
+    lines = lines.substring(lines.indexOf("/*") + 3, lines.lastIndexOf("*/"));
+    return lines;
+}
