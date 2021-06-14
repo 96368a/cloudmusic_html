@@ -105,19 +105,6 @@ button#player_play{
     text-align: center;
 }
 
-#other_features progress{
-    border-radius: 2px;
-    border: none;
-    height: 3px;
-    vertical-align: middle;
-    width: 80px;
-}
-#other_features progress::-webkit-progress-bar{
-    background-color: #e5e5e5;
-}
-#other_features progress::-webkit-progress-value{
-    background: #ff5c8a;
-}
 
 .progress-bar {
     width: 800px;
@@ -129,18 +116,12 @@ button#player_play{
 }
 
 .progress-thumb {
-    width: 500px;
-    height: 5px;
     background-color: #66ccff;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     border-radius: 3px;
 }
-
-/* .progress-thumb:hover {
-    height: 8px;
-} */
 
 .progress-thumb-dot::after {
     content: "";
@@ -170,15 +151,18 @@ button#player_play{
     margin-right: -2px;
 }
 
-#song_bar{
-    flex: 0 0 350px;
-    width: 350px;
-    height: 4px;
+#song_progress{
     display: inline-block;
 }
 
+#song_bar{
+    flex: 0 0 310px;
+    width: 310px;
+    height: 4px;
+
+}
+
 #song_thumb{
-    flex: 0 0;
     width: 50px;
     height: 4px;
 }

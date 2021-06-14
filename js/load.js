@@ -198,4 +198,14 @@ setTimeout(() => {
     $("#song_bar").mouseup(()=>{
         // volume_flag=false
     })
+    a=1
+/*     setInterval(function(){
+        $("#song_thumb").width($("#song_bar").width()*a/100)
+        a++
+        console.log(a)
+    },500) */
+    $("#song_list_show").on('click',()=>{
+
+        $("#show-song-list").toggle(100)
+    })
 }, 1200);

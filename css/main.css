@@ -20,10 +20,16 @@ input {
     border: none;
 }
 
+button{
+    cursor: pointer;
+}
 a {
     text-decoration: none;
 }
 
+li{
+    list-style: none;
+}
 .icon {
     width: 1.2em;
     height: 1.2em;
@@ -74,9 +80,9 @@ header {
 #player {
     width: 1080px;
     height: 62px;
-    position: fixed;
+/*     position: fixed;
     bottom: 0;
-    left: auto;
+    left: auto; */
     background: #66ccff;
 }
 
@@ -203,4 +209,13 @@ button.listening {
     height: 32px;
     background: url("http://p1.music.126.net/axewGX7u9P9Iuqjep-3mmQ==/109951165601796681.jpg") no-repeat;
     background-size: 32px 32px;
+}
+
+#show-song-list{
+    width: 400px;
+    height: 800px;
+    /* background: #33e3f0; */
+    position: fixed;
+    /* right: 0; */
+    bottom: auto;
 }

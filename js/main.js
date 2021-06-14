@@ -9,12 +9,14 @@ $(function () {
     $(".menu").load("menu.html");
     $("#content").load("song_list.html");
     $("#player").load("player.html");
+    $("#show-song-list").load("show-song-list.html")
     load_menu(userid).then(e => {
         menu = e;
     });
     load_songlist(6617041635).then(e => {
         songlist = e;
     });
+    $("#show-song-list").hide()
     setTimeout(function () {
         // play_songlist()
         player.player = $("#playerr")[0]
@@ -22,18 +24,21 @@ $(function () {
         player.song_name = $("#song_name")
         player.song_author = $("#song_author")
         player.player.src = "http://m8.music.126.net/20210607213231/235059e7de4ef8abd8aa04b2a8e6b990/ymusic/04c3/30f5/9f03/f2160f0315f611d729dfc034a1d0e813.mp3";
-        player.player.volume=0.5
-/* Object.defineProperty(player.player, 'currentTime', {
-    get: function () {
-        return now_time;
-    },
-    set: function (v) {
-        now_time=v;
-        alert(233)
-    }
-}) */
-console.log("%c%s","color: #66ccff",_logs404.getMultiLine())
+        player.player.volume = 0.5
+        /* Object.defineProperty(player.player, 'currentTime', {
+            get: function () {
+                return now_time;
+            },
+            set: function (v) {
+                now_time=v;
+                alert(233)
+            }
+        }) */
+        console.log("%c%s", "color: #66ccff", _logs404.getMultiLine())
     }, 1000)
+    //歌单
+    $("#show-song-list").css("left", $("#content").offset().left + $("#content").width() - $("#show-song-list").width())
+    $("#show-song-list").css("top", $("header").height())
 });
 
 function create_player_list() {
@@ -58,16 +63,36 @@ Object.defineProperty(player_list, 'now', {
             player.song_author.html(song_data.author)
             player.player.src = song_data.url
             player.player.play()
-            $("#player_play use").attr("xlink:href","#icon-bofang")
+            $("#player_play use").attr("xlink:href", "#icon-bofang")
             $("#player_progress span:nth-child(3)").html(format_time(song_data.time))
-            var now_time=setInterval(()=>{
-            //歌曲播放进度
-            $("#player_progress span:nth-child(1)").html((""+Math.floor(player.player.currentTime/60)).padStart(2,'0')+":"+(""+Math.floor(player.player.currentTime%60)).padStart(2,'0'))
-            
-            //进度条
-            $("#player_progress progress").val((player.player.currentTime/player.player.duration)*100)
-            },800)
+            var now_time = setInterval(() => {
+                //歌曲播放进度
+                $("#player_progress span:nth-child(1)").html(("" + Math.floor(player.player.currentTime / 60)).padStart(2, '0') + ":" + ("" + Math.floor(player.player.currentTime % 60)).padStart(2, '0'))
+
+                //进度条
+                $("#song_thumb").width((player.player.currentTime / player.player.duration) * $("#song_bar").width())
+                // $("#player_progress progress").val((player.player.currentTime/player.player.duration)*100)
+            }, 800)
         }
         // alert("设置")
+    }
+})
+Object.defineProperty(player_list, 'now_id', {
+    get: function () {
+        return nowid;
+    },
+    set: function (v) {
+        nowid = v;
+        if (v != 0) {
+            $("#show-song-list ul").html("")
+            $("#song-list-show-info span").html("共"+player_list.order.length+"首")
+            player_list.order.forEach(e => {
+                song = $("<li><span>" + player_list.songlist[e].name + "</span><span>"
+                    + player_list.songlist[e].author
+                    + "</span><span>" + format_time(player_list.songlist[e].time)
+                    + "</span></li>")
+                $("#show-song-list ul").append(song)
+            });
+        }
     }
 })
