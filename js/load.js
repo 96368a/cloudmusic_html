@@ -1,7 +1,10 @@
 async function load_menu(userid) {//加载个人歌单
     data = await get_user_playlist(userid)
     data.playlist.forEach(e => {
-        let menu_list = $("<li><a href=javascript:; class=\"menu_song\">" + e.name + "</a></li>");
+        let menu_list = $("<li><a href=javascript:; >"+
+        "<svg class=\"icon svg-icon\" aria-hidden=\"true\">"
+        +"<use xlink:href=\"#icon-songlist\"></use></svg>"
+        + e.name + "</a></li>");
         menu_list.attr("data-id", e.id)
         if (e.userId == userid)//用户创建
             $("#favorite_list").before(menu_list)
@@ -13,6 +16,8 @@ async function load_menu(userid) {//加载个人歌单
             songlist = e;
             play_songlist()
         })
+        $(this).siblings("li").children("a").removeClass("song_lost-focus")
+        $(this).children("a").addClass("song_lost-focus")
     })
     return new Promise((resolve, rejects) => {
         resolve(data);
@@ -42,7 +47,10 @@ async function load_songlist(id) {//歌单详情
         $(this).fadeOut().remove();
     })
     data.playlist.tracks.forEach(e => {
-        list = $("<li><span>❤</span><span>" + e.name
+        list = $("<li><span>"+
+        "<svg class=\"icon svg-icon\" aria-hidden=\"true\"><use xlink:href=\"#icon-xihuan\"></use></svg>"
+    +"<svg class=\"icon svg-icon\" aria-hidden=\"true\"><use xlink:href=\"#icon-xiazai\"></use></svg>"
+        +"</span><span>" + e.name
             + "</span><span>" + e.ar[0].name + "</span><span>"
             + e.al.name + "</span><span>"
             + format_time(e.dt)
@@ -71,8 +79,8 @@ async function load_songlist(id) {//歌单详情
 async function load_song(id) {
     data = await get_song_url(id)
     player.src = data.data[0].url
-    player.play();
-    $("#player_play use").attr("xlink:href","#icon-bofang")
+    player.player.play();
+    $("#player_play use").attr("xlink:href","#icon-zanting")
 }
 
 async function play_songlist() {//播放列表更新
@@ -113,14 +121,14 @@ setTimeout(() => {
         // console.log(233)
         if (player.player.paused) {
             player.player.play();
-            $("#player_play use").attr("xlink:href","#icon-bofang")
+            $("#player_play use").attr("xlink:href","#icon-zanting")
         } else {
             player.player.pause();
-            $("#player_play use").attr("xlink:href","#icon-zanting")
+            $("#player_play use").attr("xlink:href","#icon-bofang")
         }
     })
     $("#player_prev").on('click', () => {
-        player_list.now++;
+        player_list.now--;
     })
     $("#player_next").on('click', () => {
         player_list.now++;
@@ -198,7 +206,6 @@ setTimeout(() => {
     $("#song_bar").mouseup(()=>{
         // volume_flag=false
     })
-    a=1
 /*     setInterval(function(){
         $("#song_thumb").width($("#song_bar").width()*a/100)
         a++

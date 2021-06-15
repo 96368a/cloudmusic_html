@@ -211,11 +211,10 @@ button#favorite_list{
     padding-left: 20px;
     color: #aaabac;
 }
-#songlist_each_info li:not(:first-child) span:first-child::after{
-    content: "⇩";
+#songlist_each_info li:not(:first-child) span:first-child svg{
     /* float: left; */
-    padding-left: 5px;
-    color: #aaabac;
+    padding-left: 10px;
+
 }
 
 #songlist_each_info li:nth-child(even){

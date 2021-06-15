@@ -40,10 +40,11 @@ li{
 
 body {
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
     background-color: #eee4e4;
     overflow: hidden;
+    background: url("../images/bg.jpg");
 }
 
 .main_body {
@@ -51,6 +52,7 @@ body {
     background-color: #ffffff;
     height: 1080px;
     overflow: hidden;
+    border-radius: 3px;
 }
 
 header {
@@ -207,7 +209,7 @@ button.listening {
     border-radius: 50%;
     width: 32px;
     height: 32px;
-    background: url("http://p1.music.126.net/axewGX7u9P9Iuqjep-3mmQ==/109951165601796681.jpg") no-repeat;
+    background: url("http://p1.music.126.net/HqYJ_Y-YvaLPO3K3Lkq9lw==/109951165259671080.jpg") no-repeat;
     background-size: 32px 32px;
 }
 

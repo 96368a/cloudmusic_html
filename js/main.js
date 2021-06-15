@@ -15,6 +15,11 @@ $(function () {
     });
     load_songlist(6617041635).then(e => {
         songlist = e;
+        play_songlist().then(e=>{
+            player_list.now=0;
+            player.player.pause();
+            $("#player_play use").attr("xlink:href", "#icon-bofang")
+        })
     });
     $("#show-song-list").hide()
     setTimeout(function () {
@@ -63,7 +68,7 @@ Object.defineProperty(player_list, 'now', {
             player.song_author.html(song_data.author)
             player.player.src = song_data.url
             player.player.play()
-            $("#player_play use").attr("xlink:href", "#icon-bofang")
+            $("#player_play use").attr("xlink:href", "#icon-zanting")
             $("#player_progress span:nth-child(3)").html(format_time(song_data.time))
             var now_time = setInterval(() => {
                 //歌曲播放进度
@@ -77,7 +82,7 @@ Object.defineProperty(player_list, 'now', {
         // alert("设置")
     }
 })
-Object.defineProperty(player_list, 'now_id', {
+Object.defineProperty(player_list, 'now_id', {//切歌
     get: function () {
         return nowid;
     },

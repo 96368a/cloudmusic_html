@@ -32,9 +32,12 @@
     text-overflow: ellipsis;
 }
 
-.menu a:hover,
-.menu li:nth-child(1) a {
+.menu a:hover{
     /*菜单透明浅灰背景*/
+    background: rgba(214, 202, 202, 0.295);
+}
+
+.song_lost-focus{
     background: rgba(214, 202, 202, 0.295);
 }
 
