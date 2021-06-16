@@ -3,6 +3,7 @@
     height: 640px;
     /* right: 18px; */
     /* overflow-y: scroll; */
+    box-shadow: -2px 0px 2px #f4d5d5;
 }
 
 #song-list-show-info {
