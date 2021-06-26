@@ -115,7 +115,17 @@ async function play_songlist() {//播放列表更新
 async function play_song_start(now) {
     play_songlist.now = now
 }
+
+function Dialog(msg){//提示信息
+    $("#dialog").html(msg)
+    $("#dialog").fadeIn(800)
+    $("#dialog").css("top",$("#player").offset().top-60)
+    setTimeout(()=>{
+        $("#dialog").fadeOut(2000)
+    },1500)
+}
 //播放器按钮绑定
+volume_flag1=0
 setTimeout(() => {
     $("#player_play").click(function () {//播放、暂停
         // console.log(233)
@@ -161,6 +171,7 @@ setTimeout(() => {
         }
     }) */
     //音量条事件
+
     $("#volume_bar").mouseover(function(){
         $(this).addClass("volume_thumb_dot")
     })
@@ -172,11 +183,21 @@ setTimeout(() => {
         volume_flag=true
         $("#volume_thumb").width((e.pageX - $(this).offset().left))
         player.player.volume=$("#volume_thumb").width()/$(this).width()
+        if(player.player.volume==0){
+            $("#volume_icon").find("use").attr("xlink:href","#icon-guanbishengyin")
+        }else{
+            $("#volume_icon").find("use").attr("xlink:href","#icon-yinliang")
+        }
     })
     $("#volume_bar").mousemove(function(e){
         if(volume_flag){
             $("#volume_thumb").width((e.pageX - $(this).offset().left))
             player.player.volume=$("#volume_thumb").width()/$(this).width()
+            if(player.player.volume==0){
+                $("#volume_icon").find("use").attr("xlink:href","#icon-guanbishengyin")
+            }else{
+                $("#volume_icon").find("use").attr("xlink:href","#icon-yinliang")
+            }
         }
     })
     $("#volume_bar").mouseup(()=>{
@@ -212,7 +233,17 @@ setTimeout(() => {
         console.log(a)
     },500) */
     $("#song_list_show").on('click',()=>{
-
         $("#show-song-list").toggle(100)
+    })
+    //音量图标
+    $("#volume_icon").on('click',function(){
+        let tmp=player.player.volume
+        player.player.volume=volume_flag1
+        volume_flag1=tmp
+        if(player.player.volume==0){
+            $(this).find("use").attr("xlink:href","#icon-guanbishengyin")
+        }else{
+            $(this).find("use").attr("xlink:href","#icon-yinliang")
+        }
     })
 }, 1200);

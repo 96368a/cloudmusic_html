@@ -2,7 +2,7 @@
 var menu, songlist
 var player = new Object//播放器对象
 var player_list = new Object()//播放列表
-$(function () {
+$(function () { 
     create_player_list()
     let userid = 607728498;
     // $.pjax({url:"menu.html",container:".menu"})
@@ -40,10 +40,14 @@ $(function () {
             }
         }) */
         console.log("%c%s", "color: #66ccff", _logs404.getMultiLine())
+        $(".menu li:not(li[data-id])").on('click',()=>{Dialog("暂未实现")})
     }, 1000)
     //歌单
     $("#show-song-list").css("left", $("#content").offset().left + $("#content").width() - $("#show-song-list").width())
     $("#show-song-list").css("top", $("header").height())
+    $("#dialog").hide()
+
+    // $("#dialog").css("top",$("#player").offset().top-60)
 });
 
 function create_player_list() {

@@ -50,9 +50,9 @@ body {
 .main_body {
     flex: 0 0 1080px;
     background-color: #ffffff;
-    height: 1080px;
+    /* height: 1080px; */
     overflow: hidden;
-    border-radius: 3px;
+    border-radius: 3px 3px 0 0;
 }
 
 header {
@@ -220,4 +220,16 @@ button.listening {
     position: fixed;
     /* right: 0; */
     bottom: auto;
+}
+
+#dialog{
+    position: fixed;
+    z-index: 999;
+    width: 200px;
+    height: 40px;
+    background: #201f22c7;
+    border-radius: 50px;
+    text-align: center;
+    line-height: 40px;
+    color: #ebdcdc;
 }
