@@ -5,7 +5,7 @@ var player_list = new Object()//播放列表
 $(function () { 
     if(window.location.protocol=="file:"){
         alert("检测到当前为本地地址,存在跨域问题,将为你跳到演示地址")
-        window.location.href = "https://blog.233c.cn/cloudmusic_html/"
+        window.location.href = "https://blog.52lty.cf/cloudmusic_html/"
     }
     create_player_list()
     let userid = 607728498;
