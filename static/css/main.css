@@ -209,7 +209,8 @@ button.listening {
     border-radius: 50%;
     width: 32px;
     height: 32px;
-    background: url("http://p1.music.126.net/HqYJ_Y-YvaLPO3K3Lkq9lw==/109951165259671080.jpg") no-repeat;
+    background: url("http://p1.music.126.net/HqYJ_Y-YvaLPO3K3Lkq9lw==/109951165259671080.jpg");
+    background-repeat: no-repeat;
     background-size: 32px 32px;
 }
 
