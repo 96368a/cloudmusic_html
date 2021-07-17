@@ -7,4 +7,6 @@
 
 后端采用开源项目nodejs@[NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi)
 
+[Demo地址](http://blog.52lty.cf/cloudmusic_html)
+
 前端使用jquery+原生js
