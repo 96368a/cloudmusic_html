@@ -17,9 +17,11 @@ $(function () {
     // $.pjax({url:"menu.html",container:".menu"})
     // $(".menu").load("templates/menu.html");
     $("#content").load("templates/song_list.html");
-    // $("#content").load("find.html");
-    // $("#player").load("templates/player.html");
+    //播放列表组件
     $("#show-song-list").load("templates/show-song-list.html")
+    $("#show-song-list").hide()
+    $("#show-song-list").css("left", $("#content").offset().left + $("#content").width() - $("#show-song-list").width())
+    $("#show-song-list").css("top", $("header").height())
     load_menu(userid).then(e => {
         menu = e;
     });
@@ -31,7 +33,6 @@ $(function () {
             $("#player_play use").attr("xlink:href", "#icon-bofang")
         })
     });
-    $("#show-song-list").hide()
     setTimeout(function () {
         // play_songlist()
         player.player = $("#playerr")[0]
@@ -50,14 +51,13 @@ $(function () {
             }
         }) */
         console.log("%c%s", "color: #66ccff", _logs404.getMultiLine())
-        $(".menu li:not(li[data-id])").on('click',()=>{Dialog("暂未实现")})
     }, 1000)
     //歌单
-    $("#show-song-list").css("left", $("#content").offset().left + $("#content").width() - $("#show-song-list").width())
-    $("#show-song-list").css("top", $("header").height())
+
     $("#dialog").hide()
 
     // $("#dialog").css("top",$("#player").offset().top-60)
+    initBindEvents();
 });
 
 function create_player_list() {
@@ -86,11 +86,13 @@ Object.defineProperty(player_list, 'now', {
             $("#player_progress span:nth-child(3)").html(format_time(song_data.time))
             var now_time = setInterval(() => {
                 //歌曲播放进度
+                if(player.player.paused==false){
                 $("#player_progress span:nth-child(1)").html(("" + Math.floor(player.player.currentTime / 60)).padStart(2, '0') + ":" + ("" + Math.floor(player.player.currentTime % 60)).padStart(2, '0'))
 
                 //进度条
                 $("#song_thumb").width((player.player.currentTime / player.player.duration) * $("#song_bar").width())
                 // $("#player_progress progress").val((player.player.currentTime/player.player.duration)*100)
+                }
             }, 800)
         }
         // alert("设置")
