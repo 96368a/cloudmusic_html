@@ -1,3 +1,7 @@
+/*
+ * @LastEditors: Logs404
+ * @Description: 用于各种ajax请求
+ */
 _url="https://163.233c.cn"
 //https://music.api.tianli0.top/
 //http://www.hjmin.com/

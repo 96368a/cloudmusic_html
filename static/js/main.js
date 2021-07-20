@@ -1,4 +1,8 @@
 
+/*
+ * @LastEditors: Logs404
+ * @Description: 主函数
+ */
 var menu, songlist
 var player = new Object//播放器对象
 var player_list = new Object()//播放列表
@@ -11,10 +15,10 @@ $(function () {
     let userid = 607728498;
     // let userid = 427657421;
     // $.pjax({url:"menu.html",container:".menu"})
-    $(".menu").load("templates/menu.html");
+    // $(".menu").load("templates/menu.html");
     $("#content").load("templates/song_list.html");
     // $("#content").load("find.html");
-    $("#player").load("templates/player.html");
+    // $("#player").load("templates/player.html");
     $("#show-song-list").load("templates/show-song-list.html")
     load_menu(userid).then(e => {
         menu = e;
