@@ -1,20 +1,24 @@
 
+/*
+ * @LastEditors: Logs404
+ * @Description: 主函数
+ */
 var menu, songlist
 var player = new Object//播放器对象
 var player_list = new Object()//播放列表
 $(function () { 
     if(window.location.protocol=="file:"){
         alert("检测到当前为本地地址,存在跨域问题,将为你跳到演示地址")
-        window.location.href = "https://blog.233c.cn/cloudmusic_html/"
+        window.location.href = "https://blog.52lty.cf/cloudmusic_html/"
     }
     create_player_list()
     let userid = 607728498;
     // let userid = 427657421;
     // $.pjax({url:"menu.html",container:".menu"})
-    $(".menu").load("templates/menu.html");
+    // $(".menu").load("templates/menu.html");
     $("#content").load("templates/song_list.html");
     // $("#content").load("find.html");
-    $("#player").load("templates/player.html");
+    // $("#player").load("templates/player.html");
     $("#show-song-list").load("templates/show-song-list.html")
     load_menu(userid).then(e => {
         menu = e;

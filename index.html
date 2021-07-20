@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://at.alicdn.com/t/font_2602501_jros44odtkf.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
-    <script src="static/js/api.js"></script>
+    <script src="static/js/ajax.js"></script>
     <script src="static/js/load.js"></script>
     <script src="static/js/main.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script>
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script> -->
     <link rel="stylesheet" href="static/css/main.css">
-    <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="static/images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon" />
     <title>╰（‵□′）╯ 抑云 beta内部开发测试版 </title>
 </head>
 
@@ -77,14 +77,87 @@
                 </div>
             </div>
             <div id="show-song-list">
-                
+
             </div>
         </header>
         <div class="center">
-            <div class="menu"></div>
+            <div class="menu">
+                <ul>
+                    <li><a href=javascript:;>发现</a></li>
+                    <li><a href=javascript:;>视频</a></li>
+                    <li><a href=javascript:;>朋友</a></li>
+                    <li><a href=javascript:;>直播</a></li>
+                    <li><a href=javascript:;>私人FM</a></li>
+                    <span id="my_music">我的音乐</span>
+                    <li><a href=javascript:;>本地音乐</a></li>
+                    <li><a href=javascript:;>下载管理</a></li>
+                    <li><a href=javascript:;>音乐云盘</a></li>
+                    <li><a href=javascript:;>我的电台</a></li>
+                    <li><a href=javascript:;>我的收藏</a></li>
+                    <span id="my_list">创建的歌单</span>
+                    <span id="favorite_list">收藏的歌单</span>
+                </ul>
+
+            </div>
             <div id="content"></div>
         </div>
-        <div id="player"></div>
+        <div id="player">
+            <div id="song_detail">
+                <div id="song_pic"><img src="" alt=""></div>
+                <div id="song_info">
+                    <span id="song_name">二人三角 (Love Theory Ver.)</span>
+                    <span id="song_author">阿良良木健</span>
+                </div>
+            </div>
+            <div id="player_control">
+                <div id="player_control_button">
+                    <button id="player_mode">
+                        <svg class="icon svg-icon" aria-hidden="true">
+                            <use xlink:href="#icon-xindong"></use>
+                        </svg>
+                    </button>
+                    <button id="player_prev">
+                        <svg class="icon svg-icon" aria-hidden="true">
+                            <use xlink:href="#icon-prev"></use>
+                        </svg>
+                    </button>
+                    <button id="player_play">
+                        <svg class="icon svg-icon" aria-hidden="true">
+                            <use xlink:href="#icon-bofang"></use>
+                        </svg>
+                    </button>
+                    <button id="player_next">
+                        <svg class="icon svg-icon" aria-hidden="true">
+                            <use xlink:href="#icon-next"></use>
+                        </svg>
+                    </button>
+                    <button id="player_lyric">词</button>
+                </div>
+                <div id="player_progress">
+                    <span>00:00</span>
+                    <div id="song_progress">
+                        <div class="progress-bar" id="song_bar">
+                            <div class="progress-thumb song_thumb_dot" id="song_thumb"></div>
+                        </div>
+                    </div>
+                    <span>04:50</span>
+                </div>
+            </div>
+            <div id="other_features">
+                <span>极高</span>
+                <span id="volume_icon"><svg class="icon svg-icon" aria-hidden="true">
+                        <use xlink:href="#icon-yinliang"></use>
+                    </svg></span>
+                <div class="progress-bar" id="volume_bar">
+                    <div class="progress-thumb" id="volume_thumb"></div>
+                </div>
+                <span id="song_list_show"> <svg class="icon svg-icon" aria-hidden="true">
+                        <use xlink:href="#icon-bofangliebiao"></use>
+                    </svg>
+                </span>
+                <audio id="playerr" src=""></audio>
+            </div>
+        </div>
     </div>
     <div id="dialog">
         <span>23333333333</span>
