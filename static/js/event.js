@@ -4,6 +4,7 @@
  */
 
 function initBindEvents() {
+
     //未实现功能的按钮的提示
     $(".menu li:not(li[data-id])").on('click', () => { Dialog("暂未实现") })
     //播放器事件
@@ -24,10 +25,14 @@ function bindPlayer() {
     })
     $("#player_prev").on('click', () => {
         player_list.now--;
+        player.player.play();
     })
     $("#player_next").on('click', () => {
         player_list.now++;
+        player.player.play();
     })
+
+
 
     //音量条事件
     $("#volume_bar").mouseover(function () {

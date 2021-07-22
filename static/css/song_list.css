@@ -1,12 +1,8 @@
-#songlist{
-    height: 200px;
-
-}
-
 #list_info{
     display: flex;
     width: 870px;
     height: 240px;
+    overflow: hidden;
 }
 #list_img{
     flex: 0 0 186px;
@@ -157,6 +153,7 @@ button#favorite_list{
     /* width: 75px; */
     padding: 4px;
     text-align: center;
+    cursor: pointer;
 }
 #content_nav>span:hover{
     color: #000;
@@ -192,6 +189,12 @@ button#favorite_list{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+#songlist_each_info li span:nth-child(5) {
+    /* 歌曲时长 */
+    /* background: #66ccff; */
+    flex: 0 0 80px;
 }
 #songlist_each_info li:first-child span{
     color: #888888;
