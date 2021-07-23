@@ -51,6 +51,8 @@ body {
     background-color: #eee4e4;
     overflow: hidden;
     background: url("../images/bg.jpg");
+    background-size: cover;
+
 }
 
 .main_body {
@@ -202,13 +204,10 @@ button.listening {
     text-align: center;
 }
 
-.avatar {
+.avatar img{
     border-radius: 50%;
     width: 32px;
     height: 32px;
-    background: url("http://p1.music.126.net/HqYJ_Y-YvaLPO3K3Lkq9lw==/109951165259671080.jpg");
-    background-repeat: no-repeat;
-    background-size: 32px 32px;
 }
 
 #show-song-list {
@@ -268,12 +267,12 @@ button.listening {
     text-overflow: ellipsis;
 }
 
-.menu a:hover{
+.menu a:hover {
     /*菜单透明浅灰背景*/
     background: rgba(214, 202, 202, 0.295);
 }
 
-.song_lost-focus{
+.song_lost-focus {
     background: rgba(214, 202, 202, 0.295);
 }
 
@@ -300,16 +299,18 @@ button.listening {
     width: 5px;
     height: 2px;
 }
+
 /* 滚动条样式 */
 .menu:hover::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
     background: #cec4c4;
 }
+
 /* 列表样式结束 */
 
 /* 播放器样式开始 */
-#player{
+#player {
     background-color: #ffffff;
     display: flex;
     flex-direction: row;
@@ -324,7 +325,7 @@ button.listening {
     /* bottom: 0; */
 }
 
-#song_detail{
+#song_detail {
     flex: 1;
     /* background: #66ccff; */
     display: flex;
@@ -332,7 +333,7 @@ button.listening {
     align-items: center;
 }
 
-#song_pic{
+#song_pic {
     flex: 0 0 50px;
     margin: 7px;
     width: 50px;
@@ -341,25 +342,30 @@ button.listening {
     /* background: #e32ce9; */
     /* float: left; */
 }
-#song_pic img{
+
+#song_pic img {
     height: 100%;
     width: 100%;
     border-radius: 6px;
 }
-#song_info{
+
+#song_info {
     /* display: inline-block; */
     flex: 1;
     font-size: 14px;
 }
-#song_name{
+
+#song_name {
     font-size: 14px;
     display: block;
 }
-#song_author{
+
+#song_author {
     display: block;
     font-size: 12px;
 }
-#player_control{
+
+#player_control {
     flex: 2;
     background: #ffffff;
     display: flex;
@@ -367,7 +373,8 @@ button.listening {
     justify-content: center;
     align-items: center;
 }
-#player_control button{
+
+#player_control button {
     flex: 0 0 36px;
     width: 36px;
     height: 36px;
@@ -376,27 +383,31 @@ button.listening {
     background: none;
     margin: 0 10px 0 10px;
 }
-button#player_play{
+
+button#player_play {
     background: #f4f4f4;
 }
-#player_progress{
+
+#player_progress {
     font-size: 12px;
     transform: scale(0.9);
     display: flex;
-    align-items:center;
+    align-items: center;
 }
-#player_progress span{
+
+#player_progress span {
     padding: 0 5px 0 5px;
 }
 
-#other_features{
+#other_features {
     flex: 1;
     background: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-#other_features span:first-child{
+
+#other_features span:first-child {
     width: 36px;
     height: 18px;
     text-align: center;
@@ -411,13 +422,15 @@ button#player_play{
     border-radius: 2px;
     vertical-align: text-top;
 }
-#other_features span:nth-child(2){
+
+#other_features span:nth-child(2) {
     width: 36px;
     height: 36px;
     line-height: 36px;
     text-align: center;
 }
-#other_features span:nth-child(4){
+
+#other_features span:nth-child(4) {
     width: 36px;
     height: 36px;
     line-height: 36px;
@@ -452,16 +465,17 @@ button#player_play{
     margin-right: -2px;
 }
 
-#volume_bar{
+#volume_bar {
     width: 80px;
     height: 3px;
 }
 
-#volume_thumb{
+#volume_thumb {
     width: 10px;
     height: 3px;
 }
-.volume_thumb_dot::after{
+
+.volume_thumb_dot::after {
     content: "";
     height: 7px;
     width: 7px;
@@ -470,11 +484,11 @@ button#player_play{
     margin-right: -2px;
 }
 
-#song_progress{
+#song_progress {
     display: inline-block;
 }
 
-#song_bar{
+#song_bar {
     flex-shrink: 0;
     flex: 0 0 310px;
     width: 310px;
@@ -482,13 +496,13 @@ button#player_play{
 
 }
 
-#song_thumb{
+#song_thumb {
     flex-shrink: 0;
     width: 50px;
     height: 4px;
 }
 
-.song_thumb_dot::after{
+.song_thumb_dot::after {
     content: "";
     height: 8px;
     width: 8px;
@@ -496,4 +510,5 @@ button#player_play{
     border-radius: 50%;
     margin-right: -2px;
 }
+
 /* 播放器播放器样式结束 */
