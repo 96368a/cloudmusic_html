@@ -11,6 +11,34 @@ function initBindEvents() {
     bindPlayer();
 }
 
+function initPages() {
+    $(".search-data>div").hide(0).eq(0).show(0);
+    initSearch();
+}
+function initSearch() {
+    $("#search-bar").on('keypress', function (e) {
+        if (e.keyCode == 13) {//回车事件
+            tmp = get_search($(this).val()).then(e => {
+                console.log(e)
+                tmp = e
+                $("#search-counters span").html(tmp.result.songCount)
+                tmp.result.songs.forEach(e => {
+                    var song = $("<li><span><span>"
+                        + "<svg class=\"icon svg-icon\" aria-hidden=\"true\">"
+                        + "<use xlink:href=\"#icon-xihuan\"></use>"
+                        + "</svg><svg class=\"icon svg-icon\" aria-hidden=\"true\">"
+                        + "<use xlink:href=\"#icon-xiazai\"></use>"
+                        + "</svg></span></span>"
+                        + `<span>${e.name}</span>`
+                        + `<span>${e.artists[0].name}</span>`
+                        + `<span>${e.album.name}</span>`
+                        + `<span>${format_time(e.duration)}</span></li>`)
+                    $(".search-singe ul").append(song)
+                })
+            })
+        }
+    })
+}
 function bindPlayer() {
     // 播放器按钮绑定
     //下一首、上一首事件

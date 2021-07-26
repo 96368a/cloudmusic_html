@@ -183,18 +183,21 @@ button#favorite_list{
 }
 
 #songlist_each_info li span{
-    flex: 1;
+    flex: 3;
     font-size: 13px;
     color: #343434;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+#songlist_each_info li span:nth-child(2){
+    flex: 4;
+}
 
 #songlist_each_info li span:nth-child(5) {
     /* 歌曲时长 */
     /* background: #66ccff; */
-    flex: 0 0 80px;
+    flex: 1;
 }
 #songlist_each_info li:first-child span{
     color: #888888;

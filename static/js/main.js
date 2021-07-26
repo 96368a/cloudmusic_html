@@ -1,22 +1,23 @@
-
 /*
  * @LastEditors: Logs404
  * @Description: 主函数
  */
 var menu, songlist
-var player = new Object//播放器对象
-var player_list = new Object()//播放列表
-$(function () {
+var player = new Object //播放器对象
+var player_list = new Object() //播放列表
+$(function() {
     if (window.location.protocol == "file:") {
         alert("检测到当前为本地地址,存在跨域问题,将为你跳到演示地址")
         window.location.href = "https://blog.52lty.cf/cloudmusic_html/"
     }
     create_player_list()
+    // let userid = 485379100;
     let userid = 607728498;
     // let userid = 427657421;
     // $.pjax({url:"menu.html",container:".menu"})
     // $(".menu").load("templates/menu.html");
-    $("#content").load("templates/song_list.html");
+    // $("#content").load("templates/song_list.html");
+    $("#content").load("templates/search.html");
     //播放列表组件
     $("#show-song-list").load("templates/show-song-list.html")
     $("#show-song-list").hide()
@@ -46,6 +47,7 @@ $(function () {
 
     // $("#dialog").css("top",$("#player").offset().top-60)
     initBindEvents();
+    initPages();
 });
 
 function create_player_list() {
@@ -57,10 +59,10 @@ function create_player_list() {
 }
 
 Object.defineProperty(player_list, 'now', {
-    get: function () {
+    get: function() {
         return value;
     },
-    set: function (v) {
+    set: function(v) {
         value = v;
         // console.log(1)
         if (value >= 0 && value <= this.order.length) {
@@ -79,27 +81,27 @@ Object.defineProperty(player_list, 'now', {
 
                     //进度条
                     $("#song_thumb").width((player.player.currentTime / player.player.duration) * $("#song_bar").width())
-                    // $("#player_progress progress").val((player.player.currentTime/player.player.duration)*100)
+                        // $("#player_progress progress").val((player.player.currentTime/player.player.duration)*100)
                 }
             }, 800)
         }
         // alert("设置")
     }
 })
-Object.defineProperty(player_list, 'now_id', {//切歌
-    get: function () {
+Object.defineProperty(player_list, 'now_id', { //切歌
+    get: function() {
         return nowid;
     },
-    set: function (v) {
+    set: function(v) {
         nowid = v;
         if (v != 0) {
             $("#show-song-list ul").html("")
             $("#song-list-show-info span").html("共" + player_list.order.length + "首")
             player_list.order.forEach(e => {
-                song = $("<li><span>" + player_list.songlist[e].name + "</span><span>"
-                    + player_list.songlist[e].author
-                    + "</span><span>" + format_time(player_list.songlist[e].time)
-                    + "</span></li>")
+                song = $("<li><span>" + player_list.songlist[e].name + "</span><span>" +
+                    player_list.songlist[e].author +
+                    "</span><span>" + format_time(player_list.songlist[e].time) +
+                    "</span></li>")
                 $("#show-song-list ul").append(song)
             });
         }
