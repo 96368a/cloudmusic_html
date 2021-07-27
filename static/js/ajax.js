@@ -2,7 +2,7 @@
  * @LastEditors: Logs404
  * @Description: 用于各种ajax请求
  */
-_url = "http://music.eleuu.com"
+_url = "http://163.233c.cn"
     //https://music.api.tianli0.top/
     //http://www.hjmin.com/
     //http://music.eleuu.com/
@@ -54,7 +54,8 @@ async function get_song_detail(ids) { //加载歌单详情 传入歌曲id数组�
 
 async function get_playlist_detail_dynamic(id) {
     url = _url + "/playlist/detail/dynamic?id="
-    return get_json(url + id);
+    tmp1 = await get_json(url + id);
+    return tmp1
 }
 
 async function get_song_url(ids) {

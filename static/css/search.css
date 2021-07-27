@@ -46,14 +46,14 @@
 }
 
 .search-singe li span {
-    padding-left: 20px;
     font-size: 14px;
     text-overflow: ellipsis;
     white-space: nowrap;
+    overflow: hidden;
 }
 
 .search-singe li span svg {
-    padding-left: 10px;
+    padding-left: 6px;
 }
 
 .search-singe li:not(li:first-child)>span:first-child:before {
@@ -69,9 +69,11 @@
 }
 
 .search-singe li span:first-child {
-    padding: 0 10px 0 20px;
+    /* padding: 0 10px 0 20px; */
     flex: 0 0 90px;
     text-align: end;
+    font-size: 12px;
+    margin-right: 10px;
 }
 
 .search-singe li span:nth-child(2) {

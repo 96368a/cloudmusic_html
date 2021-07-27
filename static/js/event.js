@@ -18,25 +18,34 @@ function initPages() {
 function initSearch() {
     $("#search-bar").on('keypress', function (e) {
         if (e.keyCode == 13) {//回车事件
-            tmp = get_search($(this).val()).then(e => {
-                console.log(e)
-                tmp = e
-                $("#search-counters span").html(tmp.result.songCount)
-                tmp.result.songs.forEach(e => {
-                    var song = $("<li><span><span>"
-                        + "<svg class=\"icon svg-icon\" aria-hidden=\"true\">"
-                        + "<use xlink:href=\"#icon-xihuan\"></use>"
-                        + "</svg><svg class=\"icon svg-icon\" aria-hidden=\"true\">"
-                        + "<use xlink:href=\"#icon-xiazai\"></use>"
-                        + "</svg></span></span>"
-                        + `<span>${e.name}</span>`
-                        + `<span>${e.artists[0].name}</span>`
-                        + `<span>${e.album.name}</span>`
-                        + `<span>${format_time(e.duration)}</span></li>`)
-                    $(".search-singe ul").append(song)
-                })
-            })
+            $("#content>div").hide().eq(1).show(0);
+            search_event(1)
         }
+    })
+    $(".search-nav li").on("click", function (e) {
+
+    })
+}
+
+function search_event(type) {
+    get_search($("#search-bar").val(), type).then(e => {
+        $("#search-counters span").html(e.result.songCount)
+        //清空现有歌曲
+        $(".search-singe ul li:not(:first)").remove()
+        //添加搜索结果
+        e.result.songs.forEach(e => {
+            var song = $("<li><span><span>"
+                + "<svg class=\"icon svg-icon\" aria-hidden=\"true\">"
+                + "<use xlink:href=\"#icon-xihuan\"></use>"
+                + "</svg><svg class=\"icon svg-icon\" aria-hidden=\"true\">"
+                + "<use xlink:href=\"#icon-xiazai\"></use>"
+                + "</svg></span></span>"
+                + `<span>${e.name}</span>`
+                + `<span>${e.artists[0].name}</span>`
+                + `<span>${e.album.name}</span>`
+                + `<span>${format_time(e.duration)}</span></li>`)
+            $(".search-singe ul").append(song)
+        })
     })
 }
 function bindPlayer() {

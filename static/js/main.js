@@ -16,8 +16,8 @@ $(function() {
     // let userid = 427657421;
     // $.pjax({url:"menu.html",container:".menu"})
     // $(".menu").load("templates/menu.html");
-    // $("#content").load("templates/song_list.html");
-    $("#content").load("templates/search.html");
+    $("#song_list").load("templates/song_list.html");
+    $("#search_page").load("templates/search.html").hide();
     //播放列表组件
     $("#show-song-list").load("templates/show-song-list.html")
     $("#show-song-list").hide()

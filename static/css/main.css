@@ -84,6 +84,7 @@ header {
 #content {
     flex: 1;
     overflow: hidden auto;
+    height: 630px;;
     /* background: #a431c7; */
 }
 
@@ -204,7 +205,7 @@ button.listening {
     text-align: center;
 }
 
-.avatar img{
+.avatar img {
     border-radius: 50%;
     width: 32px;
     height: 32px;
@@ -295,13 +296,13 @@ button.listening {
     line-height: 28px;
 }
 
-.menu::-webkit-scrollbar {
+.menu::-webkit-scrollbar,#content::-webkit-scrollbar {
     width: 5px;
     height: 2px;
 }
 
 /* 滚动条样式 */
-.menu:hover::-webkit-scrollbar-thumb {
+.menu:hover::-webkit-scrollbar-thumb ,#content::-webkit-scrollbar-thumb{
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
     background: #cec4c4;

@@ -28,6 +28,7 @@ async function load_menu(userid) {//加载个人歌单
 }
 
 async function load_songlist(id) {//歌单详情
+    $("#content>div").hide().eq(0).show(0);
     data = await get_playlist_detail(id);
     // console.log(data)
     //设置歌单名
@@ -71,7 +72,7 @@ async function load_songlist(id) {//歌单详情
     })
 
     //歌单收藏、分享、播放
-    info = await get_playlist_detail_dynamic(id)
+    var info1 = await get_playlist_detail_dynamic(id)
     // console.log(info)
     $("#favorite").html("收藏(" + format_num(info.bookedCount) + ")")
     $("#share_list").html("分享(" + format_num(info.shareCount) + ")")
