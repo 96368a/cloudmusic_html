@@ -26,7 +26,7 @@ $(function() {
     load_menu(userid).then(e => {
         menu = e;
     });
-    load_songlist(6617041635).then(e => {
+    initSongList(6617041635).then(e => {
         songlist = e;
         play_songlist().then(e => {
             player_list.now = 0;

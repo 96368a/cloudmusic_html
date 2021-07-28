@@ -27,6 +27,61 @@ function initSearch() {
     })
 }
 
+async function initSongList(id) {
+    $("#content>div").hide().eq(0).show(0);
+    var data = await get_playlist_detail(id);
+    // console.log(data)
+    //设置歌单名
+    $("#songlist_info h2").html(data.playlist.name)
+    //设置歌单缩略图
+    $("#list_img img").attr("src", data.playlist.coverImgUrl).attr("alt", data.playlist.name)
+    //设置作者
+    $(".avatar_1 span").html(data.playlist.creator.nickname).siblings("img").attr("src", data.playlist.creator.avatarUrl)
+    //设置创建时间
+    create_time = new Date(data.playlist.createTime)
+    $(".create_time").html(create_time.getFullYear() + "年" + create_time.getMonth() + "月 创建")
+    //简介
+    if (data.playlist.description != null) {
+        $("#introduction").html("简介: " + data.playlist.description).show()
+    } else {
+        $("#introduction").hide()
+    }
+    //添加歌曲
+    $("#songlist_each_info li:not(li:nth-child(1))").each(function () {
+        $(this).fadeOut().remove();
+    })
+    data.playlist.tracks.forEach(e => {
+        list = $("<li><span>" +
+            "<svg class=\"icon svg-icon\" aria-hidden=\"true\"><use xlink:href=\"#icon-xihuan\"></use></svg>"
+            + "<svg class=\"icon svg-icon\" aria-hidden=\"true\"><use xlink:href=\"#icon-xiazai\"></use></svg>"
+            + "</span><span>" + e.name
+            + "</span><span>" + e.ar[0].name + "</span><span>"
+            + e.al.name + "</span><span>"
+            + format_time(e.dt)
+            + "</span></li>")
+        list.attr("data-id", e.id)
+        $("#songlist_each_info ul").append(list)
+    })
+    //歌曲点击监听
+    $("#songlist_each_info li[data-id]").on('dblclick', function () {
+        // load_song($(this).attr("data-id"))
+        if (player_list.now_id != songlist.playlist.id)
+            play_songlist()
+        player_list.now = $(this).index() - 1
+        player.player.play();
+    })
+
+    //歌单收藏、分享、播放
+    var info = await get_playlist_detail_dynamic(id)
+    // console.log(info)
+    $("#favorite").html("收藏(" + format_num(info.bookedCount) + ")")
+    $("#share_list").html("分享(" + format_num(info.shareCount) + ")")
+    $("#songlist_statistics_info").html("歌曲:" + data.playlist.trackIds.length + "  播放:" + format_num(info.playCount))
+    return new Promise((resolve, rejects) => {
+        resolve(data)
+    })
+}
+
 function search_event(type) {
     get_search($("#search-bar").val(), type).then(e => {
         $("#search-counters span").html(e.result.songCount)

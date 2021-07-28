@@ -54,8 +54,7 @@ async function get_song_detail(ids) { //加载歌单详情 传入歌曲id数组�
 
 async function get_playlist_detail_dynamic(id) {
     url = _url + "/playlist/detail/dynamic?id="
-    tmp1 = await get_json(url + id);
-    return tmp1
+    return get_json(url + id);
 }
 
 async function get_song_url(ids) {
