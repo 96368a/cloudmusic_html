@@ -38,15 +38,15 @@ function next_pic() {
 
 
 }
-//var flag = setInterval("next_pic()", 2000);
+var flag = setInterval("next_pic()", 2000);
 
-// document.getElementById("CarouselChart").addEventListener("mouseover", pause);
+document.getElementById("CarouselChart").addEventListener("mouseover", pause);
 
 function pause() {
     clearInterval(flag);
 }
 
-// document.getElementById("CarouselChart").addEventListener("mouseout", set);
+document.getElementById("CarouselChart").addEventListener("mouseout", set);
 
 function set() {
     flag = setInterval("next_pic()", 2000);
