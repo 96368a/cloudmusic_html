@@ -1,0 +1,173 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+#item-customize {
+    display: none;
+}
+
+#item-SongList {
+    display: none;
+}
+
+#item-rank {
+    display: none;
+}
+
+#item-singer {
+    display: none;
+}
+
+#item-LatestMusic {
+    display: none;
+}
+
+#all {
+    display: flex;
+    flex-direction: column;
+    width: 820px;
+    height: 3000px;
+    border: 1px solid red;
+}
+
+#NavigationBar ul li {
+    float: left;
+    margin: 0 10px;
+    line-height: 48px;
+}
+
+#NavigationBar {
+    width: 820px;
+    height: 50px;
+}
+
+#content {
+    width: 820px;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.box {
+    width: 145px;
+    height: 180px;
+    border: 3px rgb(26, 2, 2) solid;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+.box:hover {
+    cursor: pointer;
+}
+
+.back {
+    width: 140px;
+    height: 140px;
+    position: relative;
+    left: 90px;
+    top: 85px;
+}
+
+.photo {
+    width: 140px;
+    height: 140px;
+    background-color: rosybrown;
+    border-radius: 5px;
+}
+
+.photo:hover .back {
+    background-image: url(../images/bofang.png);
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+}
+
+.box p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+#NavigationBar input {
+    display: none;
+}
+
+#lb1:checked~ul label.lb1 li {
+    font-size: 25px;
+    color: #000;
+}
+
+#lb2:checked~ul label.lb2 li {
+    font-size: 25px;
+    color: #000;
+}
+
+#lb3:checked~ul label.lb3 li {
+    font-size: 25px;
+    color: #000;
+}
+
+#lb4:checked~ul label.lb4 li {
+    font-size: 25px;
+    color: #000;
+}
+
+#lb4:checked~ul label.lb4 li {
+    font-size: 25px;
+    color: #000;
+}
+
+#lb5:checked~ul label.lb5 li {
+    font-size: 25px;
+    color: #000;
+}
+
+#lb6:checked~ul label.lb6 li {
+    font-size: 25px;
+    color: #000;
+}
+
+.movebar {
+    width: 80px;
+    height: 50px;
+    border-top: 3px red solid;
+    position: absolute;
+    left: 15px;
+    top: 46px;
+    margin: 0;
+    padding: 0;
+}
+
+#lb1:checked~ul .movebar {
+    left: 12px;
+}
+
+#lb2:checked~ul .movebar {
+    left: 95px;
+}
+
+#lb3:checked~ul .movebar {
+    left: 175px;
+    width: 40px;
+}
+
+#lb4:checked~ul .movebar {
+    left: 220px;
+    width: 60px;
+}
+
+#lb5:checked~ul .movebar {
+    left: 290px;
+    width: 40px;
+}
+
+#lb6:checked~ul .movebar {
+    left: 350px;
+    width: 80px;
+}

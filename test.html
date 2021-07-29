@@ -1,0 +1,139 @@
+<html>
+
+<head>
+    <style>
+        img {
+            position: absolute;
+            width: 500px;
+            height: 200px;
+            border-radius: 10px;
+            left: 150px;
+            top: 100px;
+            transition-duration: 0.5s;
+        }
+        
+        #img2 {
+            position: absolute;
+            left: 150px;
+            top: 100px;
+        }
+        
+        #img1 {
+            position: absolute;
+            left: 350px;
+            top: 100px;
+            z-index: 100;
+            transform: scale(1.3);
+        }
+        
+        #img0 {
+            position: absolute;
+            left: 550px;
+            top: 100px;
+        }
+        
+        #img0 {
+            z-index: 7;
+        }
+        
+        #img1 {
+            z-index: 6;
+        }
+        
+        #img2 {
+            z-index: 5;
+        }
+        
+        #img3 {
+            z-index: 4;
+        }
+        
+        #img4 {
+            z-index: 3;
+        }
+        
+        #img5 {
+            z-index: 2;
+        }
+        
+        #img6 {
+            z-index: 1;
+        }
+        
+        #img7 {
+            z-index: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="all">
+        <img src="static\images\0.jpg" alt="0" id="img0">
+        <img src="static\images\1.jpg" alt="1" id="img1">
+        <img src="static\images\2.jpg" alt="2" id="img2">
+        <img src="static\images\3.jpg" alt="3" id="img3">
+        <img src="static\images\4.jpg" alt="4" id="img4">
+        <img src="static\images\5.jpg" alt="5" id="img5">
+        <img src="static\images\6.jpg" alt="6" id="img6">
+        <img src="static\images\7.jpg" alt="7" id="img7">
+    </div>
+
+    <script>
+        var count = 1;
+
+        var a = document.getElementById("img0");
+        var b = document.getElementById("img1");
+        var c = document.getElementById("img2");
+        b.style.zIndex = 100;
+
+        function revolve2() {
+            console.log(a.id);
+            console.log(b.id);
+            console.log(c.id);
+
+            for (var i = 0; i < 8; i++) {
+
+                var obj = document.getElementById("img" + i);
+                if (window.getComputedStyle(obj).zIndex != 100) {
+
+                    obj.style.zIndex = parseInt(window.getComputedStyle(obj).zIndex) + 1;
+                }
+            }
+            a.style.zIndex = 0;
+            a.style.left = "150px";
+            a.style.transform = "scale(" + 1 + ")";
+            console.log("c:" + window.getComputedStyle(c).zIndex);
+            b.style.zIndex = parseInt(window.getComputedStyle(c).zIndex) + 1;
+            console.log("b:" + parseInt(window.getComputedStyle(b).zIndex));
+            b.style.left = "550px";
+            b.style.transform = "scale(" + 1 + ")";
+            c.style.left = "350px";
+            c.style.zIndex = 100;
+            c.style.transform = "scale(" + 1.3 + ")";
+            console.log(window.getComputedStyle(document.getElementById("img0")).zIndex);
+            console.log(window.getComputedStyle(document.getElementById("img1")).zIndex);
+            console.log(window.getComputedStyle(document.getElementById("img2")).zIndex);
+            console.log(window.getComputedStyle(document.getElementById("img3")).zIndex);
+            console.log(window.getComputedStyle(document.getElementById("img4")).zIndex);
+            console.log(window.getComputedStyle(document.getElementById("img5")).zIndex);
+            console.log(window.getComputedStyle(document.getElementById("img6")).zIndex);
+            console.log(window.getComputedStyle(document.getElementById("img7")).zIndex);
+
+            console.log("\n");
+            a = document.getElementById("img" + (count));
+            b = document.getElementById("img" + (count + 1) % 8);
+            c = document.getElementById("img" + (count + 2) % 8);
+            count++;
+            if (count > 7) {
+                count = 0;
+            }
+
+
+        }
+        setInterval("revolve2()", 2000);
+    </script>
+
+</body>
+
+</html>

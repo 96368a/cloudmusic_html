@@ -1,6 +1,119 @@
 <head>
-<link rel="stylesheet" href="css/find.css">
+    <link rel="stylesheet" href="..\static\css\find.css">
+    <link rel="stylesheet" href="..\static\css\find-lbt.css">
+
 </head>
+
 <body>
-    <h1>233</h1>
+
+    <div id="NavigationBar">
+        <input type="radio" id="lb1" name="inp" checked>
+        <input type="radio" id="lb2" name="inp">
+        <input type="radio" id="lb3" name="inp">
+        <input type="radio" id="lb4" name="inp">
+        <input type="radio" id="lb5" name="inp">
+        <input type="radio" id="lb6" name="inp">
+        <ul>
+            <label for="lb1" class="lb1"><li id="recommendations">个性推荐</li></label>
+            <label for="lb2" class="lb2"><li id="customize">专属定制</li></label>
+            <label for="lb3" class="lb3"> <li id="SongList">歌单</li></label>
+            <label for="lb4" class="lb4"><li id="rank">排行榜</li></label>
+            <label for="lb5" class="lb5"><li id="singer">歌手</li></label>
+            <label for="lb6" class="lb6"><li id="LatestMusic">最新音乐</li></label>
+            <li class="movebar"></li>
+        </ul>
+    </div>
+    <div id="all">
+        <div id="item-recommendations">
+
+            <div id="CarouselChart">
+                <div id="CarouselChart-all">
+                    <img src="..\static\images\0.jpg" alt="0" id="img0">
+                    <img src="..\static\images\1.jpg" alt="1" id="img1">
+                    <img src="..\static\images\2.jpg" alt="2" id="img2">
+                    <img src="..\static\images\3.jpg" alt="3" id="img3">
+                    <img src="..\static\images\4.jpg" alt="4" id="img4">
+                    <img src="..\static\images\5.jpg" alt="5" id="img5">
+                    <img src="..\static\images\6.jpg" alt="6" id="img6">
+                    <img src="..\static\images\7.jpg" alt="7" id="img7">
+                </div>
+                <div id="left">
+                    &lt;
+                </div>
+                <div id="right">
+                    &gt;
+                </div>
+            </div>
+            <div id="content">
+                <a href="" style="font-size: 25px;width: 100%;text-decoration: none;color: black;">推荐歌单></a>
+
+                <div class="box" id="b1">
+                    <div class="photo">
+                        <div class="back"></div>
+                    </div>
+
+                    <p>每日歌曲推荐</p>
+                </div>
+                <div class="box" id="b2">
+                    <div class="photo">
+                        <div class="back"></div>
+                    </div>
+                    <p></p>
+                </div>
+                <div class="box" id="b3">
+                    <div class="photo">
+                        <div class="back"></div>
+                    </div>
+                    <p>人最容易忘记的是自己。——克尔凯戈尔</p>
+                </div>
+                <div class="box" id="b4">
+                    <div class="photo">
+                        <div class="back"></div>
+                    </div>
+                    <p>人不能两次踏入同一条河流，因为无论是这条河还是这个人都已经不同。——赫拉克利特</p>
+                </div>
+                <div class="box" id="b5">
+                    <div class="photo">
+                        <div class="back"></div>
+                    </div>
+                    <p>习惯就是人生的最大指导。——休谟</p>
+                </div>
+                <div class="box" id="b6">
+                    <div class="photo">
+                        <div class="back"></div>
+                    </div>
+                    <p>一开始，问题就是要把纯粹而缄默的体验带入</p>
+                </div>
+                <div class="box" id="b7">
+                    <div class="photo">
+                        <div class="back"></div>
+                    </div>
+                    <p></p>
+                </div>
+                <div class="box" id="b8">
+                    <div class="photo">
+                        <div class="back"></div>
+                    </div>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <div id="item-customize">
+            定制
+        </div>
+        <div id="item-SongList">
+            歌单
+        </div>
+        <div id="item-rank">
+            排行榜
+        </div>
+        <div id="item-singer">
+            歌手
+        </div>
+        <div id="item-LatestMusic">
+            最新音乐
+        </div>
+    </div>
+    <script src="..\static\js\find.js"></script>
+    <script src="..\static\js\find-lbt.js"></script>
 </body>
