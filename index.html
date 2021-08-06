@@ -8,7 +8,6 @@
     <script src="https://at.alicdn.com/t/font_2602501_jros44odtkf.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <script src="static/js/ajax.js"></script>
-    <script src="static/js/load.js"></script>
     <script src="static/js/event.js"></script>
     <script src="static/js/main.js"></script>
     <!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script> -->
@@ -39,7 +38,7 @@
                     <label for=""><svg class="icon svg-icon" aria-hidden="true">
                             <use xlink:href="#icon-sousuo"></use>
                         </svg></label>
-                    <input type="text">
+                    <input type="text" id="search-bar" value="七秒之恋">
                 </div>
                 <button class="listening"><svg class="icon svg-icon" aria-hidden="true">
                         <use xlink:href="#icon-tinggeshiqu"></use>
@@ -102,7 +101,14 @@
                 </ul>
 
             </div>
-            <div id="content"></div>
+            <div id="content">
+                <div id="song_list">
+
+                </div>
+                <div id="search_page">
+                    
+                </div>
+            </div>
         </div>
         <div id="player">
             <div id="song_detail">
