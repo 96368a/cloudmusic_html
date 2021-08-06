@@ -3,7 +3,7 @@
  * @Description: 用于绑定各种事件
  */
 
-function initBindEvents() {
+function initBindEvents() {//初始化绑定事件
 
     //未实现功能的按钮的提示
     $(".menu li:not(li[data-id])").on('click', () => { Dialog("暂未实现") })
