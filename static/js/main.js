@@ -3,7 +3,7 @@
  * @Description: 主函数
  */
 var menu, songlist
-var player = new Object //播放器对象
+const player = new Object(); //播放器对象
 var player_list = new Object() //播放列表
 $(function() {
     if (window.location.protocol == "file:") {
@@ -23,12 +23,12 @@ $(function() {
     $("#show-song-list").hide()
     $("#show-song-list").css("left", $("#content").offset().left + $("#content").width() - $("#show-song-list").width())
     $("#show-song-list").css("top", $("header").height())
-    load_menu(userid).then(e => {
+    initUserSongList(userid).then(e => {
         menu = e;
     });
     initSongList(6617041635).then(e => {
         songlist = e;
-        play_songlist().then(e => {
+        loadSongList().then(e => {
             player_list.now = 0;
             // player.player.pause();
             $("#player_play use").attr("xlink:href", "#icon-bofang")

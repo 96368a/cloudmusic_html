@@ -27,7 +27,11 @@ function initSearch() {
     })
 }
 
-async function initSongList(id) {
+async function play_song_start(now) {
+    loadSongList.now = now
+}
+
+async function initSongList(id) {//加载歌单详情信息
     $("#content>div").hide().eq(0).show(0);
     var data = await get_playlist_detail(id);
     // console.log(data)
@@ -66,19 +70,82 @@ async function initSongList(id) {
     $("#songlist_each_info li[data-id]").on('dblclick', function () {
         // load_song($(this).attr("data-id"))
         if (player_list.now_id != songlist.playlist.id)
-            play_songlist()
+            loadSongList()
         player_list.now = $(this).index() - 1
         player.player.play();
     })
 
     //歌单收藏、分享、播放
-    var info = await get_playlist_detail_dynamic(id)
-    // console.log(info)
-    $("#favorite").html("收藏(" + format_num(info.bookedCount) + ")")
-    $("#share_list").html("分享(" + format_num(info.shareCount) + ")")
-    $("#songlist_statistics_info").html("歌曲:" + data.playlist.trackIds.length + "  播放:" + format_num(info.playCount))
+    /*     var info = await get_playlist_detail_dynamic(id)
+        // console.log(info)
+        $("#favorite").html("收藏(" + format_num(info.bookedCount) + ")")
+        $("#share_list").html("分享(" + format_num(info.shareCount) + ")")
+        $("#songlist_statistics_info").html("歌曲:" + data.playlist.trackIds.length + "  播放:" + format_num(info.playCount)) */
+    get_playlist_detail_dynamic(id).then(e => {
+        $("#favorite").html("收藏(" + format_num(e.bookedCount) + ")")
+        $("#share_list").html("分享(" + format_num(e.shareCount) + ")")
+        $("#songlist_statistics_info").html("歌曲:" + data.playlist.trackIds.length + "  播放:" + format_num(e.playCount))
+    })
     return new Promise((resolve, rejects) => {
         resolve(data)
+    })
+}
+
+async function loadSongList() {//播放列表更新
+    ids = []
+    order = []
+    for (i = 0; i < songlist.playlist.trackIds.length; i++) {
+        ids.push(songlist.playlist.trackIds[i].id);
+    }
+    data_url = await get_song_url(ids);
+    for (i = 0; i < songlist.playlist.tracks.length; i++) {
+        song = new Object()
+        song.id = songlist.playlist.tracks[i].id//歌曲id
+        song.name = songlist.playlist.tracks[i].name//歌曲名字
+        song.time = songlist.playlist.tracks[i].dt//歌曲时间
+        song.al_picurl = songlist.playlist.tracks[i].al.picUrl//专辑图片
+        song.al_name = songlist.playlist.tracks[i].al.name//专辑名字
+        song.author = ""
+        songlist.playlist.tracks[i].ar.forEach(d => {
+            song.author += d.name + "/";
+        })
+        // song.author=song.author.replace("/",'')
+        player_list.songlist[song.id] = song
+        order.push(song.id)
+    }
+    data_url.data.forEach(d => {
+        player_list.songlist[d.id].url = d.url
+    })
+    player_list.order = order
+    player_list.now_id = songlist.playlist.id
+}
+
+async function initUserSongList(userid) {//加载用户歌单
+    var data = await get_user_playlist(userid)
+    //设置用户名、头像
+    $(".username").html(data.playlist[0].creator.nickname)
+    $(".avatar img").attr('src', data.playlist[0].creator.avatarUrl)
+    data.playlist.forEach(e => {
+        let menu_list = $("<li><a href=javascript:; >" +
+            "<svg class=\"icon svg-icon\" aria-hidden=\"true\">"
+            + "<use xlink:href=\"#icon-songlist\"></use></svg>"
+            + e.name + "</a></li>");
+        menu_list.attr("data-id", e.id)
+        if (e.userId == userid)//用户创建
+            $("#favorite_list").before(menu_list)
+        else//用户收藏
+            $(".menu ul").append(menu_list)
+    });
+    $(".menu li[data-id]").on('click', function () {//歌单点击监听
+        initSongList($(this).attr("data-id")).then(e => {
+            songlist = e;
+            loadSongList()
+        })
+        $(this).siblings("li").children("a").removeClass("song_lost-focus")
+        $(this).children("a").addClass("song_lost-focus")
+    })
+    return new Promise((resolve, rejects) => {
+        resolve(data);
     })
 }
 
@@ -202,4 +269,29 @@ function bindPlayer() {
     $("#song_list_show").on('click', () => {
         $("#show-song-list").toggle(100)
     })
+}
+
+function initPlayer() {
+    return {
+        player: $("#playerr")[0],
+        pic: $("#song_pic img")[0],
+        song_name: $("#song_name"),
+        song_author: $("#song_author")
+    }
+}
+
+function Dialog(msg) {//用于提示弹窗，传入提示内容
+    $("#dialog").html(msg)
+    $("#dialog").stop().fadeIn(800)
+    $("#dialog").css("top", $("#player").offset().top - 60)
+    setTimeout(() => {
+        $("#dialog").stop().fadeOut(2000)
+    }, 1500)
+}
+
+async function load_song(id) {
+    data = await get_song_url(id)
+    player.src = data.data[0].url
+    player.player.play();
+    $("#player_play use").attr("xlink:href", "#icon-zanting")
 }
