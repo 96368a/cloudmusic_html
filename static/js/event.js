@@ -36,19 +36,19 @@ async function initSongList(id) {//加载歌单详情信息
     var data = await get_playlist_detail(id);
     // console.log(data)
     //设置歌单名
-    $("#songlist_info h2").html(data.playlist.name)
+    $(".songlist-details h2").html(data.playlist.name)
     //设置歌单缩略图
-    $("#list_img img").attr("src", data.playlist.coverImgUrl).attr("alt", data.playlist.name)
+    $(".songlist-info-pic img").attr("src", data.playlist.coverImgUrl).attr("alt", data.playlist.name)
     //设置作者
-    $(".avatar_1 span").html(data.playlist.creator.nickname).siblings("img").attr("src", data.playlist.creator.avatarUrl)
+    $(".songlist-info-avatar span").html(data.playlist.creator.nickname).siblings("img").attr("src", data.playlist.creator.avatarUrl)
     //设置创建时间
     create_time = new Date(data.playlist.createTime)
-    $(".create_time").html(create_time.getFullYear() + "年" + create_time.getMonth() + "月 创建")
+    $(".create-time").html(create_time.getFullYear() + "年" + create_time.getMonth() + "月 创建")
     //简介
     if (data.playlist.description != null) {
-        $("#introduction").html("简介: " + data.playlist.description).show()
+        $(".songlist-description").html("简介: " + data.playlist.description).show()
     } else {
-        $("#introduction").hide()
+        $(".songlist-description").hide()
     }
     //添加歌曲
     $("#songlist_each_info li:not(li:nth-child(1))").each(function () {
@@ -85,13 +85,15 @@ async function initSongList(id) {//加载歌单详情信息
         $("#favorite").html("收藏(" + format_num(e.bookedCount) + ")")
         $("#share_list").html("分享(" + format_num(e.shareCount) + ")")
         $("#songlist_statistics_info").html("歌曲:" + data.playlist.trackIds.length + "  播放:" + format_num(e.playCount))
+        $("#songlist-comment>span").html(`(${format_num(e.commentCount)})`)
     })
+    $(".songlist-content-warp>div").hide().eq(1).show()
     return new Promise((resolve, rejects) => {
         resolve(data)
     })
 }
 
-async function loadSongList() {//播放列表更新
+async function loadSongList(songlist) {//播放列表更新
     ids = []
     order = []
     for (i = 0; i < songlist.playlist.trackIds.length; i++) {
@@ -139,7 +141,7 @@ async function initUserSongList(userid) {//加载用户歌单
     $(".menu li[data-id]").on('click', function () {//歌单点击监听
         initSongList($(this).attr("data-id")).then(e => {
             songlist = e;
-            loadSongList()
+            loadSongList(e)
         })
         $(this).siblings("li").children("a").removeClass("song_lost-focus")
         $(this).children("a").addClass("song_lost-focus")
@@ -223,6 +225,9 @@ function bindPlayer() {
         }
     })
     $("#volume_bar").mouseup(() => {
+        volume_flag = false
+    })
+    $("#volume_bar").mouseleave(function() {
         volume_flag = false
     })
     //静音事件

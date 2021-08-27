@@ -3,51 +3,94 @@
 </head>
 
 <body>
-    <div id="songlist">
-        <div id="list_info">
-            <div id="list_img"><img height="100%" src="" alt=""></div>
-            <div id="songlist_info">
+    <div id="songlist" class="songlist">
+        <div class="songlist-info">
+            <div class="songlist-info-pic"><img height="100%" src="" alt=""></div>
+            <div class="songlist-details">
                 <!-- <span class="songlist_ico">歌单</span> -->
                 <h2>我喜欢的音乐</h2>
                 <div>
-                    <a href="" class="avatar_1"><img src="" alt=""><span>作者</span></a>
-                    <span class="create_time">2017-10-2年创建</span>
+                    <a href="" class="songlist-info-avatar"><img src="" alt=""><span>作者</span></a>
+                    <span class="create-time">2017-10-2年创建</span>
                 </div>
-                <div id="some_button">
+                <div class="songlist-control">
                     <button id="play_all">播放全部</button>
                     <button id="favorite">收藏</button>
                     <button id="share_list">分享</button>
                     <button id="download_all">下载全部</button>
                 </div>
-                <span id="songlist_statistics_info">歌曲: 150 播放:3173</span>
-                <span id="introduction"></span>
+                <span class="songlist-statistics">歌曲: 150 播放:3173</span>
+                <span class="songlist-description"></span>
             </div>
         </div>
-        <div id="songlist_content">
-            <div id="content_nav">
-                <span class="this_content_nav" id="song_list">歌曲列表</span>
-                <span id="comment">评论</span>
-                <span id="collector">收藏者</span>
+        <div class="songlist-content">
+            <div class="songlist-content-nav">
+                <span id="songlist-content">歌曲列表</span>
+                <span id="songlist-comment">评论<span>(0)</span></span>
+                <span id="songlist-collector">收藏者</span>
             </div>
-            <div id="songlist_each_info">
-                <ul>
-                    <li>
-                        <span>
-                        </span>
-                        <span>音乐标题</span>
-                        <span>歌手</span>
-                        <span>专辑</span>
-                        <span>时长</span>
-                    </li>
-                    <!--                     <li>
+            <div class="songlist-content-warp">
+                <div class="songlist-content-details">
+                    <ul>
+                        <li>
+                            <span>
+                            </span>
+                            <span>音乐标题</span>
+                            <span>歌手</span>
+                            <span>专辑</span>
+                            <span>时长</span>
+                        </li>
+                        <!--                     <li>
                         <span>❤</span>
                         <span>七秒之恋</span>
                         <span>洛天依</span>
                         <span>洛天依作品集</span>
                         <span>04:48</span>
                     </li> -->
-                </ul>
+                    </ul>
+                </div>
+                <div class="songlist-content-comment">
+                    <span>精彩评论</span>
+                    <ul class="sl-comment-content">
+                        <li class="slc-user">
+                            <div class="slc-user-avatar">
+                                <img src="http://p1.music.126.net/HqYJ_Y-YvaLPO3K3Lkq9lw==/109951165259671080.jpg" alt="">
+                            </div>
+                            <div class="slc-user-comment">
+                                <span class="slc-user-name">
+                                    木末君
+                                </span>
+                                <span class="slc-user-details">
+                                    记的最初收藏这个歌单时只有78首歌，如今已经过百了，希望v家能不断有励志正能量的歌
+                                </span>
+                            </div>
+                            <div class="slc-user-comment-time">
+                                <span>2020/12/22 12:00</span>
+                            </div>
+                        </li>
+                        <li class="slc-user">
+                            <div class="slc-user-avatar">
+                                <img src="http://p1.music.126.net/HqYJ_Y-YvaLPO3K3Lkq9lw==/109951165259671080.jpg" alt="">
+                            </div>
+                            <div class="slc-user-comment">
+                                <span class="slc-user-name">
+                                    <a href="">木末君</a>
+                                </span>
+                                <span class="slc-user-details">
+                                    记的最初收藏这个歌单时只有78首歌，如今已经过百了，希望v家能不断有励志正能量的歌记的最初收藏这个歌单时只有78首歌，如今已经过百了，希望v家能不断有励志正能量的歌记的最初收藏这个歌单时只有78首歌，如今已经过百了，希望v家能不断有励志正能量的歌记的最初收藏这个歌单时只有78首歌，如今已经过百了，希望v家能不断有励志正能量的歌记的最初收藏这个歌单时只有78首歌，如今已经过百了，希望v家能不断有励志正能量的歌
+                                </span>
+                            </div>
+                            <div class="slc-user-comment-time">
+                                <span>2020/12/22 12:00</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="songlist-content-collector">
+
+                </div>
             </div>
+
         </div>
     </div>
 </body>

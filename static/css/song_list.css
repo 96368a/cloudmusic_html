@@ -1,10 +1,12 @@
-#list_info{
+@charset "utf-8";
+
+.songlist-info{
     display: flex;
     width: 870px;
     height: 240px;
     overflow: hidden;
 }
-#list_img{
+.songlist-info-pic{
     flex: 0 0 186px;
     margin: 32px 20px 0 30px;
     height: 186px;
@@ -13,10 +15,10 @@
     border-radius: 3px;
 }
 
-#songlist_info{
+.songlist-details{
     margin: 32px 0 0 0;
 }
-#songlist_info h2{
+.songlist-details h2{ 
     line-height: 32px;
     height: 32px;
     font-size: 22px;
@@ -24,7 +26,7 @@
     /* margin-bottom: 10px; */
 }
 
-#songlist_info h2::before{
+.songlist-details h2::before{
     width: 36px;
     height: 18px;
     text-align: center;
@@ -40,13 +42,13 @@
     vertical-align: text-top;
     /* margin: auto 0; */
 }
-.avatar_1{
+.songlist-info-avatar{
     font-size: 12px;
     height: 32px;
     line-height: 32px;
     color: #507daf;
 }
-.avatar_1 img{
+.songlist-info-avatar img{
 
     display: inline-block;
     content: "";
@@ -60,12 +62,12 @@
     vertical-align:middle;
 }
 
-.create_time{
+.create-time{
     font-size: 13px;
     margin-left: 4px;
 }
 
-#songlist_info button{
+.songlist-details button{
     cursor: pointer;
     /* margin-right: 12px; */
     margin: 6px 12px 12px 0;
@@ -84,7 +86,7 @@ button#play_all{
     background: #ea507e;
     color: #fafafa;
 }
-#some_button button:hover{/*其他按钮经过特效*/
+.songlist-control button:hover{/*其他按钮经过特效*/
     background: #f2f2f2;
 }
 button#play_all:hover{/*播放全部按钮经过特效*/
@@ -120,7 +122,7 @@ button#favorite_list{
     line-height: 28px;
 }
 
-#songlist_statistics_info,#introduction{
+.songlist-statistics,.songlist-description{
     display: block;
     width: 100%;
     padding: 0.5em;
@@ -136,31 +138,31 @@ button#favorite_list{
     text-overflow: ellipsis;
 }
 
-#songlist_content{
+.songlist-content{
     /* background: #66ccff; */
     width: 100%;
     height: 300px;
 }
 
-#content_nav{
+.songlist-content-nav{
     font-size: 15px;
     color: #373737;
     height: 40px;
     padding-left: 32px;
 }
-#content_nav span{
+.songlist-content-nav span{
     display: inline-block;
     /* width: 75px; */
     padding: 4px;
     text-align: center;
     cursor: pointer;
 }
-#content_nav>span:hover{
+.songlist-content-nav>span:hover{
     color: #000;
     /* font-size: 16px; */
 }
 
-.this_content_nav{
+#songlist-contents{
     font-weight: 600;
     font-size: 16px;
 }
@@ -172,17 +174,17 @@ button#favorite_list{
     content: "";
     border-bottom: 2px solid #ff5c8a;
 } */
-#songlist_each_info ul{
+.songlist-content-details ul{
     counter-reset: sno;
 }
-#songlist_each_info li{
+.songlist-content-details li{
     list-style: none;
     display: flex;
     line-height: 32px;
     border-radius: 2px;
 }
 
-#songlist_each_info li span{
+.songlist-content-details li span{
     flex: 3;
     font-size: 13px;
     color: #343434;
@@ -190,26 +192,26 @@ button#favorite_list{
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-#songlist_each_info li span:nth-child(2){
+.songlist-content-details li span:nth-child(2){
     flex: 4;
 }
 
-#songlist_each_info li span:nth-child(5) {
+.songlist-content-details li span:nth-child(5) {
     /* 歌曲时长 */
     /* background: #66ccff; */
     flex: 1;
 }
-#songlist_each_info li:first-child span{
+.songlist-content-details li:first-child span{
     color: #888888;
 }
 
-#songlist_each_info li span:first-child{
+.songlist-content-details li span:first-child{
     padding: 0 10px 0 20px;
     flex: 0 0 90px;
     text-align: end;
 }
 
-#songlist_each_info li:not(:first-child) span:first-child::before{
+.songlist-content-details li:not(:first-child) span:first-child::before{
     counter-increment: sno;
     content: counter(sno);
     /* text-align: start; */
@@ -217,23 +219,70 @@ button#favorite_list{
     padding-left: 20px;
     color: #aaabac;
 }
-#songlist_each_info li:not(:first-child) span:first-child svg{
+.songlist-content-details li:not(:first-child) span:first-child svg{
     /* float: left; */
     padding-left: 10px;
 
 }
 
-#songlist_each_info li:nth-child(even){
+.songlist-content-details li:nth-child(even){
     background: #f9f9f9;
 }
 
-#songlist_each_info li:hover{
+.songlist-content-details li:hover{
     background: #f0f1f2;
 }
-#songlist_each_info li:active{
+.songlist-content-details li:active{
     background: #e5e5e5;
 }
 
+#songlist-comment>span{
+    font-size: 13px;
+}
+
+.songlist-content-comment{
+    margin: 10px 0 0 30px;
+}
+
+.songlist-content-comment>span{
+    font-weight: 600;
+}
+.songlist-content-comment>li{
+    background: #66ccff;
+}
+
+.sl-comment-content{
+    display: flex;
+    flex-direction: column;
+}
+
+.slc-user{
+    margin: 5px 0 5px 0;
+}
+
+.slc-user-avatar{
+    float: left;
+}
+.slc-user-avatar>img{
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+    margin-right: 10px;
+    /* float: left; */
+}
+.slc-user-name{
+    font-size: 13px;
+    color: #507daf;
+}
+
+.slc-user-details{
+    font-size: 13px;
+}
+
+.slc-user-comment-time>span{
+    font-size: 12px;
+    color: #9f9f9f;
+}
 #content{
     overflow: hidden auto;
 }

@@ -2,9 +2,9 @@
  * @LastEditors: Logs404
  * @Description: 主函数
  */
-var menu, songlist
-const player = new Object(); //播放器对象
-var player_list = new Object() //播放列表
+var songlist //想办法优化掉
+const player = {}; //播放器对象
+var player_list = {} //播放列表
 $(function() {
     if (window.location.protocol == "file:") {
         alert("检测到当前为本地地址,存在跨域问题,将为你跳到演示地址")
@@ -27,8 +27,8 @@ $(function() {
         menu = e;
     });
     initSongList(6617041635).then(e => {
-        songlist = e;
-        loadSongList().then(e => {
+        // songlist = e;
+        loadSongList(e).then(e => {
             player_list.now = 0;
             // player.player.pause();
             $("#player_play use").attr("xlink:href", "#icon-bofang")
@@ -48,6 +48,9 @@ $(function() {
     // $("#dialog").css("top",$("#player").offset().top-60)
     initBindEvents();
     initPages();
+
+
+    
 });
 
 function create_player_list() {
