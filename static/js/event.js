@@ -34,7 +34,7 @@ async function play_song_start(now) {
 async function initSongList(id) {//加载歌单详情信息
     $("#content>div").hide().eq(0).show(0);
     var data = await get_playlist_detail(id);
-    // console.log(data)
+    console.log(data)
     //设置歌单名
     $(".songlist-details h2").html(data.playlist.name)
     //设置歌单缩略图
@@ -51,7 +51,7 @@ async function initSongList(id) {//加载歌单详情信息
         $(".songlist-description").hide()
     }
     //添加歌曲
-    $("#songlist_each_info li:not(li:nth-child(1))").each(function () {
+    $(".songlist-content-details li:not(li:nth-child(1))").each(function () {
         $(this).fadeOut().remove();
     })
     data.playlist.tracks.forEach(e => {
@@ -64,10 +64,10 @@ async function initSongList(id) {//加载歌单详情信息
             + format_time(e.dt)
             + "</span></li>")
         list.attr("data-id", e.id)
-        $("#songlist_each_info ul").append(list)
+        $(".songlist-content-details ul").append(list)
     })
     //歌曲点击监听
-    $("#songlist_each_info li[data-id]").on('dblclick', function () {
+    $(".songlist-content-details li[data-id]").on('dblclick', function () {
         // load_song($(this).attr("data-id"))
         if (player_list.now_id != songlist.playlist.id)
             loadSongList()
@@ -87,7 +87,10 @@ async function initSongList(id) {//加载歌单详情信息
         $("#songlist_statistics_info").html("歌曲:" + data.playlist.trackIds.length + "  播放:" + format_num(e.playCount))
         $("#songlist-comment>span").html(`(${format_num(e.commentCount)})`)
     })
-    $(".songlist-content-warp>div").hide().eq(1).show()
+    $(".songlist-content-warp>div").hide().eq(0).show()
+    $(".songlist-content-nav span").on("click", function(e) {
+        $(".songlist-content-warp>div").hide().eq($(this).index()).show()
+    })
     return new Promise((resolve, rejects) => {
         resolve(data)
     })
